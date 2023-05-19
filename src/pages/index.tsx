@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import About from "@/components/About";
 import Works from "@/components/Works";
+import Experience from "@/components/Experience";
 
 const Portfolio: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("cover");
   const [backgroundSize, setBackgroundSize] = useState<string>("cover");
   const [backgroundOpacity, setBackgroundOpacity] = useState<number>(1);
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.pageYOffset;
 
       if (scrollPosition <= window.innerHeight) {
-        // スクロール位置が画面の高さ以下の場合、背景を2倍に拡大表示
         const scale = (1 + scrollPosition / window.innerHeight) * 200;
         console.log("scrollPosition", scrollPosition, "scale", scale);
         setBackgroundSize(`${scale}%`);
@@ -22,14 +23,31 @@ const Portfolio: React.FC = () => {
           1 - (scrollPosition - window.innerHeight) / 1000
         );
         setBackgroundOpacity(opacity);
-      } else {
-        // 背景の透明度を徐々に下げる
       }
     };
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      rootMargin: "0px",
+      threshold: 0.5,
+    });
+
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -51,11 +69,13 @@ const Portfolio: React.FC = () => {
       />
       {/* ヘッダー */}
       <header className="fixed top-0 left-0 right-0 bg-white shadow">
-        <nav className="flex justify-evenly py-4">
+        <nav className="flex justify-evenly items-center py-4">
           <Link
             href="#top"
             className={`mx-4 ${
-              activeSection === "top" ? "text-blue-500" : "text-gray-500"
+              activeSection === "top"
+                ? "text-blue-500 text-base"
+                : "text-gray-500"
             }`}
             onClick={() => handleNavClick("")}
           >
@@ -64,7 +84,9 @@ const Portfolio: React.FC = () => {
           <Link
             href="#about"
             className={`mx-4 ${
-              activeSection === "about" ? "text-blue-500" : "text-gray-500"
+              activeSection === "about"
+                ? "text-blue-500 text-base"
+                : "text-gray-500"
             }`}
             onClick={() => handleNavClick("about")}
           >
@@ -73,7 +95,9 @@ const Portfolio: React.FC = () => {
           <Link
             href="#works"
             className={`mx-4 ${
-              activeSection === "works" ? "text-blue-500" : "text-gray-500"
+              activeSection === "works"
+                ? "text-blue-500 text-base"
+                : "text-gray-500"
             }`}
             onClick={() => handleNavClick("works")}
           >
@@ -82,7 +106,9 @@ const Portfolio: React.FC = () => {
           <Link
             href="#experience"
             className={`mx-4 ${
-              activeSection === "experience" ? "text-blue-500" : "text-gray-500"
+              activeSection === "experience"
+                ? "text-blue-500 text-base"
+                : "text-gray-500"
             }`}
             onClick={() => handleNavClick("experience")}
           >
@@ -91,7 +117,9 @@ const Portfolio: React.FC = () => {
           <Link
             href="#skills"
             className={`mx-4 ${
-              activeSection === "skills" ? "text-blue-500" : "text-gray-500"
+              activeSection === "skills"
+                ? "text-blue-500 text-base"
+                : "text-gray-500"
             }`}
             onClick={() => handleNavClick("skills")}
           >
@@ -100,40 +128,40 @@ const Portfolio: React.FC = () => {
         </nav>
       </header>
 
-      {/* カバー画像 */}
       <section
         id="top"
         className="flex flex-col items-center justify-center min-h-screen"
+        ref={(ref) => (sectionRefs.current["top"] = ref)}
       ></section>
 
-      {/* 自己紹介文 */}
       <section
         id="about"
         className="flex flex-col items-center justify-center min-h-screen"
+        ref={(ref) => (sectionRefs.current["about"] = ref)}
       >
         <About />
       </section>
 
-      {/* 成果物 */}
       <section
         id="works"
         className="flex flex-col items-center justify-center min-h-screen"
+        ref={(ref) => (sectionRefs.current["works"] = ref)}
       >
         <Works />
       </section>
 
-      {/* 経歴 */}
       <section
         id="experience"
         className="flex flex-col items-center justify-center min-h-screen"
+        ref={(ref) => (sectionRefs.current["experience"] = ref)}
       >
-        {/* <Experience /> */}
+        <Experience />
       </section>
 
-      {/* スキル */}
       <section
         id="skills"
         className="flex flex-col items-center justify-center min-h-screen"
+        ref={(ref) => (sectionRefs.current["skills"] = ref)}
       >
         {/* <Skills /> */}
       </section>

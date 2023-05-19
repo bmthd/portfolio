@@ -15,7 +15,7 @@ export default function Works() {
       description:
         "楽天市場のお買い物マラソンで獲得できる楽天ポイントを計算するWebアプリです。\n スマートフォン向けとPC向けそれぞれに最適化した別のUIを作成し、本気で使いやすいツールを目指しました。",
       url: "https://point-sprint.bmth.dev/",
-      tags: ["Next.js", "Tailwind CSS", "TypeScript", "Netlify"],
+      tags: ["Next.js", "Tailwind CSS", "TypeScript", "Netlify","Rakuten API"],
     },
     {
       title: "コミケお品書きツイートまとめサイト",
@@ -23,7 +23,7 @@ export default function Works() {
       description:
         "同人イベント、コミックマーケット参加者のツイートを自動で収集しまとめるサイトです。\n 膨大な参加者を配置コード毎にまとめ、サークルチェックしやすいように工夫しました。自宅のサーバー上にホスティングしています。",
       url: "https://oshinagaki.bmth.dev/",
-      tags: ["Java", "Spring Boot", "Thymeleaf", "MySQL", "CentOS", "Apache"],
+      tags: ["Java", "Spring Boot", "Thymeleaf", "MySQL", "CentOS", "Apache",'Twitter API'],
     },
   ];
 
@@ -34,23 +34,23 @@ export default function Works() {
         {works.map((work, key) => (
           <div
             key={key}
-            className="flex flex-col items-center bg-white m-8 p-8 rounded-lg"
+            className="flex flex-col items-center bg-white m-4 rounded-lg"
           >
             <h3 className="font-bold text-lg m-4">{work.title}</h3>
-            <div className="text-gray-500">
+            <div className="text-gray-500 mb-4">
                 <p>リリース：{work.release}</p>
             </div>
-            <div className='flex flex-wrap justify-center items-center'>
+            <div className='flex flex-wrap justify-center items-center mb-2'>
             {work.tags.map((tag, key) => (
                 <span
                   key={key}
-                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2"
+                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2 whitespace-nowrap"
                 >
                     {tag}
                 </span>
             ))}
             </div>
-            <Link className="underline text-blue-500" href={work.url}>
+            <Link className="underline text-blue-500 mb-2" href={work.url}>
               {work.url}
             </Link>
             <div className="text-gray-500">

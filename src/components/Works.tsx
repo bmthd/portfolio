@@ -15,15 +15,31 @@ export default function Works() {
       description:
         "楽天市場のお買い物マラソンで獲得できる楽天ポイントを計算するWebアプリです。\n スマートフォン向けとPC向けそれぞれに最適化した別のUIを作成し、本気で使いやすいツールを目指しました。",
       url: "https://point-sprint.bmth.dev/",
-      tags: ["Next.js", "Tailwind CSS", "TypeScript", "Netlify","Rakuten API"],
+      tags: ["Next.js", "Tailwind CSS", "TypeScript", "Netlify", "Rakuten API"],
+    },
+    {
+      title: "メール文章作成くん",
+      release: "2023/5",
+      description:
+        "メールのテンプレートを登録しておき、ボタン一つで文章を作成できるHTMLツールです。\n小規模な事業者を想定し、シンプルに仕上げました。",
+      url: "https://bmthd.github.io/mail/",
+      tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
     },
     {
       title: "コミケお品書きツイートまとめサイト",
-        release: "2022/12",
+      release: "2022/12",
       description:
         "同人イベント、コミックマーケット参加者のツイートを自動で収集しまとめるサイトです。\n 膨大な参加者を配置コード毎にまとめ、サークルチェックしやすいように工夫しました。自宅のサーバー上にホスティングしています。",
       url: "https://oshinagaki.bmth.dev/",
-      tags: ["Java", "Spring Boot", "Thymeleaf", "MySQL", "CentOS", "Apache",'Twitter API'],
+      tags: [
+        "Java",
+        "Spring Boot",
+        "Thymeleaf",
+        "MySQL",
+        "CentOS",
+        "Apache",
+        "Twitter API",
+      ],
     },
   ];
 
@@ -38,19 +54,19 @@ export default function Works() {
           >
             <h3 className="font-bold text-lg m-4">{work.title}</h3>
             <div className="text-gray-500 mb-4">
-                <p>リリース：{work.release}</p>
+              <p>リリース：{work.release}</p>
             </div>
-            <div className='flex flex-wrap justify-center items-center mb-2'>
-            {work.tags.map((tag, key) => (
+            <div className="flex flex-wrap justify-center items-center mb-2">
+              {work.tags.map((tag, key) => (
                 <span
                   key={key}
-                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2 whitespace-nowrap"
+                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2 whitespace-nowrap"
                 >
-                    {tag}
+                  {tag}
                 </span>
-            ))}
+              ))}
             </div>
-            <Link className="underline text-blue-500 mb-2" href={work.url}>
+            <Link className="underline text-blue-500 mb-2" href={work.url} target="_blank">
               {work.url}
             </Link>
             <div className="text-gray-500">

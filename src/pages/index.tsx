@@ -57,7 +57,7 @@ const Portfolio: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen scroll-smooth max-sm:text-xs">
+    <div className="flex flex-col items-center justify-center min-h-screen scroll-smooth">
       {/* 背景画像 */}
       <div
         className="fixed top-0 left-0 right-0 bottom-0 -z-10 bg-cover bg-center bg-no-repeat"
@@ -68,13 +68,13 @@ const Portfolio: React.FC = () => {
         }}
       />
       {/* ヘッダー */}
-      <header className="fixed top-0 left-0 right-0 bg-white shadow">
+      <header className="fixed top-0 left-0 right-0 bg-white shadow  max-sm:text-xs">
         <nav className="flex justify-evenly items-center py-4">
           <Link
             href="#top"
             className={`mx-4 ${
               activeSection === "top"
-                ? "text-blue-500 text-base"
+                ? "text-blue-500 text-base font-bold"
                 : "text-gray-500"
             }`}
             onClick={() => handleNavClick("")}
@@ -85,7 +85,7 @@ const Portfolio: React.FC = () => {
             href="#about"
             className={`mx-4 ${
               activeSection === "about"
-                ? "text-blue-500 text-base"
+                ? "text-blue-500 text-base font-bold"
                 : "text-gray-500"
             }`}
             onClick={() => handleNavClick("about")}
@@ -96,7 +96,7 @@ const Portfolio: React.FC = () => {
             href="#works"
             className={`mx-4 ${
               activeSection === "works"
-                ? "text-blue-500 text-base"
+                ? "text-blue-500 text-base font-bold"
                 : "text-gray-500"
             }`}
             onClick={() => handleNavClick("works")}
@@ -107,7 +107,7 @@ const Portfolio: React.FC = () => {
             href="#experience"
             className={`mx-4 ${
               activeSection === "experience"
-                ? "text-blue-500 text-base"
+                ? "text-blue-500 text-base font-bold"
                 : "text-gray-500"
             }`}
             onClick={() => handleNavClick("experience")}
@@ -118,7 +118,7 @@ const Portfolio: React.FC = () => {
             href="#skills"
             className={`mx-4 ${
               activeSection === "skills"
-                ? "text-blue-500 text-base"
+                ? "text-blue-500 text-base font-bold"
                 : "text-gray-500"
             }`}
             onClick={() => handleNavClick("skills")}

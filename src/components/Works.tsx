@@ -46,11 +46,11 @@ export default function Works() {
   return (
     <div className="flex flex-col items-center bg-white m-8 p-8 rounded-lg">
       <h2 className="font-bold text-lg mb-4">Works</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-4">
         {works.map((work, key) => (
           <div
             key={key}
-            className="flex flex-col items-center bg-white m-4 rounded-lg"
+            className="flex flex-col items-center bg-white rounded-lg"
           >
             <h3 className="font-bold text-lg m-4">{work.title}</h3>
             <div className="text-gray-500 mb-4">
@@ -70,7 +70,9 @@ export default function Works() {
               {work.url}
             </Link>
             <div className="text-gray-500">
-              <p>{work.description}</p>
+            {work.description.split("\n").map((line,index) => (
+                      <p key={index} className="pb-1">{line}</p>
+                    ))}
             </div>
           </div>
         ))}

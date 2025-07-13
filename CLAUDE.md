@@ -8,6 +8,7 @@
 - 言語: TypeScript
 
 ## 技術スタック
+- **パッケージマネージャー**: Bun
 - **フロントエンド**: Next.js 15, React 19, TypeScript
 - **UI ライブラリ**: Yamada UI
 - **スタイリング**: Yamada UI Style Prop

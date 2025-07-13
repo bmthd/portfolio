@@ -1,9 +1,15 @@
 "use client";
 
-import { MenuIcon, XIcon } from "@yamada-ui/lucide";
-import { Box, Flex, IconButton, Link, VStack } from "@yamada-ui/react";
-import { useState } from "react";
 import { SECTIONS } from "@/constants/sections";
+import { MenuIcon, XIcon } from "@yamada-ui/lucide";
+import {
+	Box,
+	Flex,
+	IconButton,
+	Link,
+	useDisclosure,
+	VStack,
+} from "@yamada-ui/react";
 
 const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
@@ -11,9 +17,7 @@ const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 }));
 
 export const MobileMenu = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const onOpen = () => setIsOpen(true);
-	const onClose = () => setIsOpen(false);
+	const { open, onOpen, onClose } = useDisclosure();
 
 	return (
 		<>
@@ -22,11 +26,10 @@ export const MobileMenu = () => {
 				onClick={onOpen}
 				variant="ghost"
 				aria-label="Open menu"
-			>
-				<MenuIcon fontSize="20px" />
-			</IconButton>
+				icon={<MenuIcon fontSize="20px" />}
+			/>
 
-			{isOpen && (
+			{open && (
 				<Box
 					position="fixed"
 					top={0}
@@ -52,9 +55,8 @@ export const MobileMenu = () => {
 								onClick={onClose}
 								variant="ghost"
 								aria-label="Close menu"
-							>
-								<XIcon fontSize="20px" />
-							</IconButton>
+								icon={<XIcon fontSize="20px" />}
+							/>
 						</Flex>
 						<VStack gap={4} align="start">
 							{navItems.map((item) => (

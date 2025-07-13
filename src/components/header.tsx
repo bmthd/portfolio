@@ -1,5 +1,6 @@
 "use client";
 
+import { SECTIONS } from "@/constants/sections";
 import { MenuIcon, XIcon } from "@yamada-ui/lucide";
 import {
 	Box,
@@ -11,16 +12,11 @@ import {
 	VStack,
 } from "@yamada-ui/react";
 import { useState } from "react";
-import { SECTIONS } from "@/constants/sections";
 
-const navItems = [
-	{ label: "Home", href: `#${SECTIONS.HOME}` },
-	{ label: "About", href: `#${SECTIONS.ABOUT}` },
-	{ label: "Skills", href: `#${SECTIONS.SKILLS}` },
-	{ label: "Projects", href: `#${SECTIONS.PROJECTS}` },
-	{ label: "Blog", href: `#${SECTIONS.BLOG}` },
-	{ label: "Contact", href: `#${SECTIONS.CONTACT}` },
-];
+const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
+	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
+	href: `#${value}`,
+}));
 
 export const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);

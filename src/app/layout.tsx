@@ -1,4 +1,4 @@
-import { Box, UIProvider } from "@yamada-ui/react";
+import { UIProvider } from "@yamada-ui/react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -23,10 +23,12 @@ export default ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<Box as="html" lang="ja">
-			<Box as="body" className={`${geistSans.variable} ${geistMono.variable}`}>
+		// biome-ignore lint: plugin 必須レイアウトのため
+		<html lang="ja">
+			{/* biome-ignore lint: plugin 必須レイアウトのため */}
+			<body className={`${geistSans.variable} ${geistMono.variable}`}>
 				<UIProvider>{children}</UIProvider>
-			</Box>
-		</Box>
+			</body>
+		</html>
 	);
 };

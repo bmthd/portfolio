@@ -30,5 +30,6 @@
 				"organizeImports": "on"
 			}
 		}
-	}
+	},
+	"plugins": ["rules/no-lowercase-jsx-components.grit"]
 }

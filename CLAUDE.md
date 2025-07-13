@@ -84,6 +84,7 @@
 ### 開発体験
 - [ ] TypeScript 型安全性
 - [ ] Biome による自動フォーマット・リント
+- [ ] GritQL によるカスタムリントルール（DOM要素の直接利用検出）
 - [ ] Git hooks による品質管理
 - [ ] 開発サーバー高速化（Turbopack）
 
@@ -94,6 +95,7 @@
 - [ ] コンポーネントの関心事を分離、自分自身がどのように使われるかを知らない設計にする（props経由で外部から制御）
 - [ ] ラッパーコンポーネントのPropsを継承する（例: `interface ComponentProps extends BoxProps {}`）
 - [ ] 'use client'を最小限に抑制、各セクションはフォルダのindex.tsxでServer Componentを保持、インタラクションが必要な場合は別コンポーネントに切り出し
+- [ ] DOM要素の直接利用を禁止、Yamada UIのStyleシステムに統一（例: `<div>` → `<Box>`、`<main>` → `<Box as="main">`）
 
 ### デプロイ
 - [ ] Vercel/Netlify 等での自動デプロイ

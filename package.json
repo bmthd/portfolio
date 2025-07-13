@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "biome check ./src --fix",
+    "format": "biome format ./src"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@anthropic-ai/claude-code": "^1.0.51",
+    "@biomejs/biome": "^2.1.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

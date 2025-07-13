@@ -6,6 +6,7 @@ import {
 } from "@yamada-ui/lucide";
 import {
 	Box,
+	type BoxProps,
 	Card,
 	Container,
 	Flex,
@@ -15,7 +16,6 @@ import {
 	Link,
 	Text,
 	VStack,
-	type BoxProps,
 } from "@yamada-ui/react";
 
 import { ContactForm } from "./contact-form";

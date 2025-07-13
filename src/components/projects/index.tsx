@@ -2,6 +2,7 @@ import { ExternalLinkIcon, GithubIcon } from "@yamada-ui/lucide";
 import {
 	Badge,
 	Box,
+	type BoxProps,
 	Button,
 	Card,
 	Container,
@@ -13,7 +14,6 @@ import {
 	Text,
 	VStack,
 	Wrap,
-	type BoxProps,
 } from "@yamada-ui/react";
 
 const projects = [

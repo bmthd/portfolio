@@ -1,13 +1,7 @@
 "use client";
 
 import { MenuIcon, XIcon } from "@yamada-ui/lucide";
-import {
-	Box,
-	Flex,
-	IconButton,
-	Link,
-	VStack,
-} from "@yamada-ui/react";
+import { Box, Flex, IconButton, Link, VStack } from "@yamada-ui/react";
 import { useState } from "react";
 import { SECTIONS } from "@/constants/sections";
 

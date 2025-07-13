@@ -2,6 +2,7 @@ import { ExternalLinkIcon } from "@yamada-ui/lucide";
 import {
 	Badge,
 	Box,
+	type BoxProps,
 	Card,
 	Container,
 	Grid,
@@ -11,7 +12,6 @@ import {
 	Link,
 	Text,
 	VStack,
-	type BoxProps,
 } from "@yamada-ui/react";
 import { fetchBlogArticles } from "@/lib/blog";
 

@@ -57,9 +57,7 @@ export const ContactForm = () => {
 							</Text>
 							<Input
 								value={formData.name}
-								onChange={(e) =>
-									handleInputChange("name", e.target.value)
-								}
+								onChange={(e) => handleInputChange("name", e.target.value)}
 								placeholder="山田太郎"
 							/>
 						</Field.Root>
@@ -70,9 +68,7 @@ export const ContactForm = () => {
 							<Input
 								type="email"
 								value={formData.email}
-								onChange={(e) =>
-									handleInputChange("email", e.target.value)
-								}
+								onChange={(e) => handleInputChange("email", e.target.value)}
 								placeholder="your@email.com"
 							/>
 						</Field.Root>
@@ -83,9 +79,7 @@ export const ContactForm = () => {
 							<Textarea
 								rows={5}
 								value={formData.message}
-								onChange={(e) =>
-									handleInputChange("message", e.target.value)
-								}
+								onChange={(e) => handleInputChange("message", e.target.value)}
 								placeholder="お問い合わせ内容をご記入ください"
 							/>
 						</Field.Root>
@@ -99,11 +93,7 @@ export const ContactForm = () => {
 							{isSubmitting ? "送信中..." : "送信"}
 						</Button>
 						{toastMessage && (
-							<Text
-								color="green.500"
-								textAlign="center"
-								fontSize="sm"
-							>
+							<Text color="green.500" textAlign="center" fontSize="sm">
 								{toastMessage}
 							</Text>
 						)}

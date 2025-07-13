@@ -1,5 +1,6 @@
 import {
 	Box,
+	type BoxProps,
 	Card,
 	Container,
 	Grid,
@@ -7,7 +8,6 @@ import {
 	Heading,
 	Text,
 	VStack,
-	type BoxProps,
 } from "@yamada-ui/react";
 
 interface AboutProps extends BoxProps {}

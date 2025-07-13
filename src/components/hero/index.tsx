@@ -1,12 +1,12 @@
 import {
 	Avatar,
 	Box,
+	type BoxProps,
 	Container,
 	Flex,
 	Heading,
 	Text,
 	VStack,
-	type BoxProps,
 } from "@yamada-ui/react";
 
 import { HeroActions } from "./hero-actions";
@@ -53,12 +53,7 @@ export const Hero = ({ ...props }: HeroProps) => {
 						<HeroActions />
 					</VStack>
 					<Box flex={1} display="flex" justifyContent="center">
-						<Avatar
-							name="bmthd"
-							bg="blue.500"
-							color="white"
-							fontSize="6xl"
-						/>
+						<Avatar name="bmthd" bg="blue.500" color="white" fontSize="6xl" />
 					</Box>
 				</Flex>
 			</Container.Root>

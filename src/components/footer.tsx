@@ -35,7 +35,7 @@ const socialLinks = [
 	},
 ];
 
-export default function Footer() {
+export function Footer() {
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};

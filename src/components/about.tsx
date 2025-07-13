@@ -10,7 +10,7 @@ import {
 	VStack,
 } from "@yamada-ui/react";
 
-export default function About() {
+export function About() {
 	return (
 		<Box id="about" as="section" py={20} bg="white">
 			<Container maxW="7xl">

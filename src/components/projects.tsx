@@ -55,7 +55,7 @@ const projects = [
 	},
 ];
 
-export default function Projects() {
+export function Projects() {
 	return (
 		<Box id="projects" as="section" py={20} bg="white">
 			<Container maxW="7xl">

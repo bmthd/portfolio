@@ -21,7 +21,7 @@ const navItems = [
 	{ label: "Contact", href: "#contact" },
 ];
 
-export default function Header() {
+export function Header() {
 	const [isOpen, setIsOpen] = useState(false);
 	const onOpen = () => setIsOpen(true);
 	const onClose = () => setIsOpen(false);

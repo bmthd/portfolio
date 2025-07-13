@@ -11,7 +11,7 @@ import {
 	VStack,
 } from "@yamada-ui/react";
 
-export default function Hero() {
+export function Hero() {
 	const scrollToSection = (href: string) => {
 		const element = document.querySelector(href);
 		if (element) {

@@ -15,7 +15,7 @@ import {
 } from "@yamada-ui/react";
 import { fetchBlogArticles } from "@/lib/blog";
 
-export default async function Blog() {
+export async function Blog() {
 	const { articles } = await fetchBlogArticles();
 
 	return (

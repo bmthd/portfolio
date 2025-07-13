@@ -67,7 +67,7 @@ const technologies = [
 	"Vercel",
 ];
 
-export default function Skills() {
+export function Skills() {
 	return (
 		<Box id="skills" as="section" py={20} bg="gray.50">
 			<Container maxW="7xl">

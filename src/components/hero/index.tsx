@@ -1,4 +1,3 @@
-import { Section } from "@/ui/section";
 import {
 	Avatar,
 	Box,
@@ -8,6 +7,7 @@ import {
 	Text,
 	VStack,
 } from "@yamada-ui/react";
+import { Section } from "@/ui/section";
 import { HeroActions } from "./hero-actions";
 
 interface HeroProps extends BoxProps {}

@@ -13,21 +13,10 @@ import {
 	Text,
 	VStack,
 } from "@yamada-ui/react";
-import type { BlogArticle } from "@/lib/blog";
+import { fetchBlogArticles } from "@/lib/blog";
 
-interface BlogProps {
-	articles: BlogArticle[];
-}
-
-export default function Blog({ articles }: BlogProps) {
-	const formatDate = (dateString: string) => {
-		const date = new Date(dateString);
-		return date.toLocaleDateString("ja-JP", {
-			year: "numeric",
-			month: "short",
-			day: "numeric",
-		});
-	};
+export default async function Blog() {
+	const { articles } = await fetchBlogArticles();
 
 	return (
 		<Box id="blog" as="section" py={20} bg="white">
@@ -150,3 +139,12 @@ export default function Blog({ articles }: BlogProps) {
 		</Box>
 	);
 }
+
+const formatDate = (dateString: string) => {
+	const date = new Date(dateString);
+	return date.toLocaleDateString("ja-JP", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	});
+};

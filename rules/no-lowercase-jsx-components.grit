@@ -9,7 +9,7 @@ function register($tag) {
 }
 
 or {
-  `<$tag>$body</$tag>` where {
+  `<$tag>$body</$_>` where {
     $tag <: r"^[a-z][a-z0-9-]*$",
     register($tag)
   },
@@ -21,7 +21,7 @@ or {
     $tag <: r"^[a-z][a-z0-9-]*$",
     register($tag)
   },
-  `<$tag $props>$body</$tag>` where {
+  `<$tag $props>$body</$_>` where {
     $tag <: r"^[a-z][a-z0-9-]*$",
     register($tag)
   }

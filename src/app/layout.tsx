@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 	description: "Software Engineer Portfolio - bmthd",
 };
 
-export default function RootLayout({
+export default ({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
-}>) {
+}>) => {
 	return (
 		<html lang="ja">
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>

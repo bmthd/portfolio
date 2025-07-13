@@ -52,7 +52,7 @@ const socialLinks = [
 	},
 ];
 
-export function Contact() {
+export const Contact = () => {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -207,7 +207,7 @@ export function Contact() {
 																	<Flex alignItems="center" gap={4}>
 																		<Box p={2} bg="blue.50" borderRadius="md">
 																			<IconComponent
-																				size={20}
+																				fontSize="20px"
 																				color="#3182ce"
 																			/>
 																		</Box>

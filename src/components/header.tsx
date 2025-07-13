@@ -21,7 +21,7 @@ const navItems = [
 	{ label: "Contact", href: "#contact" },
 ];
 
-export function Header() {
+export const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const onOpen = () => setIsOpen(true);
 	const onClose = () => setIsOpen(false);
@@ -75,7 +75,7 @@ export function Header() {
 						variant="ghost"
 						aria-label="Open menu"
 					>
-						<MenuIcon size={20} />
+						<MenuIcon fontSize="20px" />
 					</IconButton>
 				</Flex>
 			</Container>
@@ -107,7 +107,7 @@ export function Header() {
 								variant="ghost"
 								aria-label="Close menu"
 							>
-								<XIcon size={20} />
+								<XIcon fontSize="20px" />
 							</IconButton>
 						</Flex>
 						<VStack gap={4} align="start">

@@ -15,7 +15,7 @@ import {
 } from "@yamada-ui/react";
 import { fetchBlogArticles } from "@/lib/blog";
 
-export async function Blog() {
+export const Blog = async () => {
 	const { articles } = await fetchBlogArticles();
 
 	return (
@@ -79,7 +79,7 @@ export async function Blog() {
 											p={1}
 											shadow="sm"
 										>
-											<ExternalLinkIcon size={16} color="#666" />
+											<ExternalLinkIcon fontSize="16px" color="#666" />
 										</Box>
 									</Box>
 									<CardBody>

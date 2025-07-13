@@ -90,6 +90,7 @@
 ### コーディング規約
 - [ ] TypeScript ファイル名は kebab-case で統一（例: `user-profile.tsx`, `blog-post.ts`）
 - [ ] 基本的に named export を使用、Next.js 規約で必要な場合のみ default export（例: page.tsx, layout.tsx, route.ts）
+- [ ] 基本的にアロー関数を使用、this参照やasserts関数などで必要な場合のみfunction宣言を使用
 
 ### デプロイ
 - [ ] Vercel/Netlify 等での自動デプロイ

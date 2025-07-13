@@ -55,7 +55,7 @@ const projects = [
 	},
 ];
 
-export function Projects() {
+export const Projects = () => {
 	return (
 		<Box id="projects" as="section" py={20} bg="white">
 			<Container maxW="7xl">
@@ -118,7 +118,7 @@ export function Projects() {
 													flex={1}
 													gap={2}
 												>
-													<GithubIcon size={16} />
+													<GithubIcon fontSize="16px" />
 													GitHub
 												</Button>
 												<Button
@@ -131,7 +131,7 @@ export function Projects() {
 													flex={1}
 													gap={2}
 												>
-													<ExternalLinkIcon size={16} />
+													<ExternalLinkIcon fontSize="16px" />
 													Demo
 												</Button>
 											</Flex>

@@ -9,10 +9,10 @@ import {
 import {
 	Box,
 	Container,
-	Divider,
 	Flex,
 	IconButton,
 	Link,
+	Separator,
 	Text,
 	VStack,
 } from "@yamada-ui/react";
@@ -35,7 +35,7 @@ const socialLinks = [
 	},
 ];
 
-export function Footer() {
+export const Footer = () => {
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
@@ -78,7 +78,7 @@ export function Footer() {
 											_hover={{ color: "white", bg: "gray.800" }}
 											aria-label={link.name}
 										>
-											<IconComponent size={20} />
+											<IconComponent fontSize="20px" />
 										</IconButton>
 									);
 								})}
@@ -91,12 +91,12 @@ export function Footer() {
 								_hover={{ color: "white", borderColor: "gray.400" }}
 								aria-label="上に戻る"
 							>
-								<ChevronUpIcon size={20} />
+								<ChevronUpIcon fontSize="20px" />
 							</IconButton>
 						</VStack>
 					</Flex>
 
-					<Divider borderColor="gray.700" />
+					<Separator borderColor="gray.700" />
 
 					<Flex
 						direction={{ base: "column", sm: "row" }}

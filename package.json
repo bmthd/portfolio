@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check ./src --fix",
-    "format": "biome format ./src",
+    "format": "biome format ./src --fix",
     "prepare": "lefthook install"
   },
   "dependencies": {

@@ -1,22 +1,20 @@
+import { Section } from "@/ui/section";
 import {
 	Avatar,
 	Box,
 	type BoxProps,
 	Container,
 	Flex,
-	Heading,
 	Text,
 	VStack,
 } from "@yamada-ui/react";
-
 import { HeroActions } from "./hero-actions";
 
 interface HeroProps extends BoxProps {}
 
 export const Hero = ({ ...props }: HeroProps) => {
 	return (
-		<Box
-			as="section"
+		<Section.Root
 			minH="100vh"
 			display="flex"
 			alignItems="center"
@@ -37,14 +35,19 @@ export const Hero = ({ ...props }: HeroProps) => {
 						textAlign={{ base: "center", lg: "left" }}
 						flex={1}
 					>
-						<Heading as="h1" size="4xl" fontWeight="bold" lineHeight="shorter">
+						<Section.Heading
+							as="h1"
+							size="4xl"
+							fontWeight="bold"
+							lineHeight="shorter"
+						>
 							<Text>こんにちは！</Text>
 							私は
 							<Text as="span" color="blue.500">
 								bmthd
 							</Text>
 							です
-						</Heading>
+						</Section.Heading>
 						<Text fontSize="xl" color="gray.600" maxW="2xl">
 							ソフトウェアエンジニアとして、モダンなウェブ技術を使用してユーザー体験を向上させるアプリケーションを開発しています。
 							TypeScript、React、Next.jsを中心とした技術スタックで、スケーラブルで保守性の高いソフトウェアの構築に取り組んでいます。
@@ -56,6 +59,6 @@ export const Hero = ({ ...props }: HeroProps) => {
 					</Box>
 				</Flex>
 			</Container.Root>
-		</Box>
+		</Section.Root>
 	);
 };

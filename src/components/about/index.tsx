@@ -5,22 +5,22 @@ import {
 	Container,
 	Grid,
 	GridItem,
-	Heading,
 	Text,
 	VStack,
 } from "@yamada-ui/react";
+import { Section } from "@/ui/section";
 
 interface AboutProps extends BoxProps {}
 
 export const About = ({ ...props }: AboutProps) => {
 	return (
-		<Box as="section" py={20} bg="white" {...props}>
+		<Section.Root py={20} bg="white" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
-						<Heading as="h2" size="3xl" fontWeight="bold">
+						<Section.Heading as="h2" size="3xl" fontWeight="bold">
 							About Me
-						</Heading>
+						</Section.Heading>
 						<Text fontSize="lg" color="gray.600" maxW="3xl">
 							ソフトウェア開発への情熱と継続的な学習への意欲を持つエンジニアです
 						</Text>
@@ -33,9 +33,9 @@ export const About = ({ ...props }: AboutProps) => {
 					>
 						<GridItem>
 							<VStack gap={6} align="start">
-								<Heading as="h3" size="xl">
+								<Section.Heading as="h3" size="xl">
 									私について
-								</Heading>
+								</Section.Heading>
 								<Text fontSize="lg" lineHeight="tall" color="gray.700">
 									私はソフトウェアエンジニアとして、ユーザー中心の設計とクリーンなコードの実装に重点を置いて開発を行っています。
 									特にフロントエンド開発において、React、Next.js、TypeScriptを活用した
@@ -59,9 +59,9 @@ export const About = ({ ...props }: AboutProps) => {
 								<Card.Root>
 									<Card.Body>
 										<VStack gap={4} align="start">
-											<Heading as="h4" size="lg">
+											<Section.Heading as="h4" size="lg">
 												経歴・背景
-											</Heading>
+											</Section.Heading>
 											<VStack gap={3} align="start">
 												<Box>
 													<Text fontWeight="semibold">専門分野</Text>
@@ -87,9 +87,9 @@ export const About = ({ ...props }: AboutProps) => {
 								<Card.Root>
 									<Card.Body>
 										<VStack gap={4} align="start">
-											<Heading as="h4" size="lg">
+											<Section.Heading as="h4" size="lg">
 												興味・関心
-											</Heading>
+											</Section.Heading>
 											<VStack gap={2} align="start">
 												<Text color="gray.600">• 新技術の学習と実践</Text>
 												<Text color="gray.600">• オープンソース貢献</Text>
@@ -107,6 +107,6 @@ export const About = ({ ...props }: AboutProps) => {
 					</Grid>
 				</VStack>
 			</Container.Root>
-		</Box>
+		</Section.Root>
 	);
 };

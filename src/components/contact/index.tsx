@@ -12,11 +12,11 @@ import {
 	Flex,
 	Grid,
 	GridItem,
-	Heading,
 	Link,
 	Text,
 	VStack,
 } from "@yamada-ui/react";
+import { Section } from "@/ui/section";
 
 import { ContactForm } from "./contact-form";
 
@@ -51,13 +51,13 @@ interface ContactProps extends BoxProps {}
 
 export const Contact = ({ ...props }: ContactProps) => {
 	return (
-		<Box as="section" py={20} bg="gray.50" {...props}>
+		<Section.Root py={20} bg="gray.50" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
-						<Heading as="h2" size="3xl" fontWeight="bold">
+						<Section.Heading as="h2" size="3xl" fontWeight="bold">
 							Contact
-						</Heading>
+						</Section.Heading>
 						<Text fontSize="lg" color="gray.600" maxW="3xl">
 							お仕事のご依頼やご質問など、お気軽にお問い合わせください
 						</Text>
@@ -77,9 +77,9 @@ export const Contact = ({ ...props }: ContactProps) => {
 								<Card.Root flex={1}>
 									<Card.Body>
 										<VStack gap={6} align="start">
-											<Heading as="h3" size="lg">
+											<Section.Heading as="h3" size="lg">
 												SNS・連絡先
-											</Heading>
+											</Section.Heading>
 											<Text color="gray.600">
 												以下のプラットフォームでもお気軽にお声がけください
 											</Text>
@@ -135,6 +135,6 @@ export const Contact = ({ ...props }: ContactProps) => {
 					</Grid>
 				</VStack>
 			</Container.Root>
-		</Box>
+		</Section.Root>
 	);
 };

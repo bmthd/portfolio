@@ -7,13 +7,13 @@ import {
 	Container,
 	Grid,
 	GridItem,
-	Heading,
 	Image,
 	Link,
 	Text,
 	VStack,
 } from "@yamada-ui/react";
 import { fetchBlogArticles } from "@/lib/blog";
+import { Section } from "@/ui/section";
 
 interface BlogProps extends BoxProps {}
 
@@ -21,13 +21,13 @@ export const Blog = async ({ ...props }: BlogProps) => {
 	const { articles } = await fetchBlogArticles();
 
 	return (
-		<Box as="section" py={20} bg="white" {...props}>
+		<Section.Root py={20} bg="white" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
-						<Heading as="h2" size="3xl" fontWeight="bold">
+						<Section.Heading as="h2" size="3xl" fontWeight="bold">
 							Blog
-						</Heading>
+						</Section.Heading>
 						<Text fontSize="lg" color="gray.600" maxW="3xl">
 							技術記事やアイデアを発信しています
 						</Text>
@@ -86,7 +86,7 @@ export const Blog = async ({ ...props }: BlogProps) => {
 											<Text fontSize="xs" color="gray.500" fontWeight="medium">
 												{formatDate(article.pubDate)}
 											</Text>
-											<Heading
+											<Section.Heading
 												as="h3"
 												size="sm"
 												lineHeight="short"
@@ -99,7 +99,7 @@ export const Blog = async ({ ...props }: BlogProps) => {
 												}}
 											>
 												{article.title}
-											</Heading>
+											</Section.Heading>
 											<Text
 												fontSize="sm"
 												color="gray.600"
@@ -135,7 +135,7 @@ export const Blog = async ({ ...props }: BlogProps) => {
 					</Box>
 				</VStack>
 			</Container.Root>
-		</Box>
+		</Section.Root>
 	);
 };
 

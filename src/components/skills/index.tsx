@@ -7,12 +7,12 @@ import {
 	Flex,
 	Grid,
 	GridItem,
-	Heading,
 	Progress,
 	Text,
 	VStack,
 	Wrap,
 } from "@yamada-ui/react";
+import { Section } from "@/ui/section";
 
 const skillCategories = [
 	{
@@ -71,13 +71,13 @@ interface SkillsProps extends BoxProps {}
 
 export const Skills = ({ ...props }: SkillsProps) => {
 	return (
-		<Box as="section" py={20} bg="gray.50" {...props}>
+		<Section.Root py={20} bg="gray.50" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
-						<Heading as="h2" size="3xl" fontWeight="bold">
+						<Section.Heading as="h2" size="3xl" fontWeight="bold">
 							Skills
-						</Heading>
+						</Section.Heading>
 						<Text fontSize="lg" color="gray.600" maxW="3xl">
 							これまでに習得した技術スキルと開発経験
 						</Text>
@@ -93,9 +93,9 @@ export const Skills = ({ ...props }: SkillsProps) => {
 								<Card.Root h="full">
 									<Card.Body>
 										<VStack gap={6} align="start">
-											<Heading as="h3" size="lg">
+											<Section.Heading as="h3" size="lg">
 												{category.title}
-											</Heading>
+											</Section.Heading>
 											<VStack gap={4} w="full">
 												{category.skills.map((skill) => (
 													<Box key={skill.name} w="full">
@@ -126,9 +126,9 @@ export const Skills = ({ ...props }: SkillsProps) => {
 					</Grid>
 
 					<VStack gap={6} w="full">
-						<Heading as="h3" size="xl" textAlign="center">
+						<Section.Heading as="h3" size="xl" textAlign="center">
 							使用技術・ツール
-						</Heading>
+						</Section.Heading>
 						<Wrap gap={4} justify="center">
 							{technologies.map((tech) => (
 								<Badge
@@ -147,6 +147,6 @@ export const Skills = ({ ...props }: SkillsProps) => {
 					</VStack>
 				</VStack>
 			</Container.Root>
-		</Box>
+		</Section.Root>
 	);
 };

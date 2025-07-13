@@ -1,6 +1,5 @@
 "use client";
 
-import { SECTIONS } from "@/constants/sections";
 import { MenuIcon, XIcon } from "@yamada-ui/lucide";
 import {
 	Box,
@@ -10,6 +9,7 @@ import {
 	useDisclosure,
 	VStack,
 } from "@yamada-ui/react";
+import { SECTIONS } from "@/constants/sections";
 
 const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),

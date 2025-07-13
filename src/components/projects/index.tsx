@@ -9,12 +9,12 @@ import {
 	Flex,
 	Grid,
 	GridItem,
-	Heading,
 	Link,
 	Text,
 	VStack,
 	Wrap,
 } from "@yamada-ui/react";
+import { Section } from "@/ui/section";
 
 const projects = [
 	{
@@ -59,13 +59,13 @@ interface ProjectsProps extends BoxProps {}
 
 export const Projects = ({ ...props }: ProjectsProps) => {
 	return (
-		<Box as="section" py={20} bg="white" {...props}>
+		<Section.Root py={20} bg="white" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
-						<Heading as="h2" size="3xl" fontWeight="bold">
+						<Section.Heading size="3xl" fontWeight="bold">
 							Projects
-						</Heading>
+						</Section.Heading>
 						<Text fontSize="lg" color="gray.600" maxW="3xl">
 							これまでに取り組んだプロジェクトの一部をご紹介します
 						</Text>
@@ -92,9 +92,9 @@ export const Projects = ({ ...props }: ProjectsProps) => {
 									</Box>
 									<Card.Body>
 										<VStack gap={4} align="start">
-											<Heading as="h3" size="lg">
+											<Section.Heading as="h3" size="lg">
 												{project.title}
-											</Heading>
+											</Section.Heading>
 											<Text color="gray.600" lineHeight="tall">
 												{project.description}
 											</Text>
@@ -145,6 +145,6 @@ export const Projects = ({ ...props }: ProjectsProps) => {
 					</Grid>
 				</VStack>
 			</Container.Root>
-		</Box>
+		</Section.Root>
 	);
 };

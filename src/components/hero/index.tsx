@@ -38,12 +38,11 @@ export const Hero = ({ ...props }: HeroProps) => {
 						flex={1}
 					>
 						<Heading as="h1" size="4xl" fontWeight="bold" lineHeight="shorter">
-							こんにちは！
-							<br />
-							私は{" "}
+							<Text>こんにちは！</Text>
+							私は
 							<Text as="span" color="blue.500">
 								bmthd
-							</Text>{" "}
+							</Text>
 							です
 						</Heading>
 						<Text fontSize="xl" color="gray.600" maxW="2xl">

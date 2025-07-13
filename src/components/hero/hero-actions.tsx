@@ -1,5 +1,5 @@
+import { Button, type ButtonProps, Flex } from "@yamada-ui/react";
 import { SECTIONS } from "@/constants/sections";
-import { Button, ButtonProps, Flex } from "@yamada-ui/react";
 
 const buttonsProps: (ButtonProps & { href: string })[] = [
 	{

@@ -46,12 +46,13 @@ export const Footer = ({ ...props }: FooterProps) => {
 						gap={8}
 					>
 						<VStack gap={4} align={{ base: "center", md: "start" }}>
-							<Text fontSize="xl" fontWeight="bold">
+							<Text color="gray.400" fontSize="xl" fontWeight="bold">
 								bmthd
 							</Text>
 							<Text color="gray.400" textAlign={{ base: "center", md: "left" }}>
 								Software Engineer
-								<br />
+							</Text>
+							<Text color="gray.400" textAlign={{ base: "center", md: "left" }}>
 								Creating meaningful digital experiences
 							</Text>
 						</VStack>

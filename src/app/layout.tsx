@@ -1,4 +1,4 @@
-import { UIProvider } from "@yamada-ui/react";
+import { Box, UIProvider } from "@yamada-ui/react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -23,10 +23,10 @@ export default ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<html lang="ja">
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+		<Box as="html" lang="ja">
+			<Box as="body" className={`${geistSans.variable} ${geistMono.variable}`}>
 				<UIProvider>{children}</UIProvider>
-			</body>
-		</html>
+			</Box>
+		</Box>
 	);
 };

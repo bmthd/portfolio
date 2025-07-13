@@ -1,15 +1,25 @@
-import { Button, Flex } from "@yamada-ui/react";
 import { SECTIONS } from "@/constants/sections";
+import { Button, ButtonProps, Flex } from "@yamada-ui/react";
+
+const buttonsProps: (ButtonProps & { href: string })[] = [
+	{
+		href: `#${SECTIONS.CONTACT}`,
+		children: "お問い合わせ",
+		colorScheme: "blue",
+	},
+	{
+		href: `#${SECTIONS.PROJECTS}`,
+		children: "プロジェクトを見る",
+		variant: "outline",
+	},
+];
 
 export const HeroActions = () => {
 	return (
-		<Flex gap={4} direction={{ base: "column", sm: "row" }}>
-			<Button as="a" href={`#${SECTIONS.CONTACT}`} size="lg" colorScheme="blue">
-				お問い合わせ
-			</Button>
-			<Button as="a" href={`#${SECTIONS.PROJECTS}`} size="lg" variant="outline">
-				プロジェクトを見る
-			</Button>
+		<Flex gap={4}>
+			{buttonsProps.map((props) => (
+				<Button key={props.href} as="a" size="lg" flex="1" px={10} {...props} />
+			))}
 		</Flex>
 	);
 };

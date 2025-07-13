@@ -10,10 +10,9 @@ import {
 	Box,
 	Button,
 	Card,
-	CardBody,
 	Container,
+	Field,
 	Flex,
-	FormControl,
 	Grid,
 	GridItem,
 	Heading,
@@ -85,7 +84,7 @@ export const Contact = () => {
 
 	return (
 		<Box id="contact" as="section" py={20} bg="gray.50">
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
 						<Heading as="h2" size="3xl" fontWeight="bold">
@@ -102,14 +101,14 @@ export const Contact = () => {
 						w="full"
 					>
 						<GridItem>
-							<Card>
-								<CardBody>
+							<Card.Root>
+								<Card.Body>
 									<form onSubmit={handleSubmit}>
 										<VStack gap={6}>
 											<Heading as="h3" size="lg" textAlign="left" w="full">
 												お問い合わせフォーム
 											</Heading>
-											<FormControl required>
+											<Field.Root required>
 												<Text mb={2} fontWeight="medium">
 													お名前 *
 												</Text>
@@ -120,8 +119,8 @@ export const Contact = () => {
 													}
 													placeholder="山田太郎"
 												/>
-											</FormControl>
-											<FormControl required>
+											</Field.Root>
+											<Field.Root required>
 												<Text mb={2} fontWeight="medium">
 													メールアドレス *
 												</Text>
@@ -133,8 +132,8 @@ export const Contact = () => {
 													}
 													placeholder="your@email.com"
 												/>
-											</FormControl>
-											<FormControl required>
+											</Field.Root>
+											<Field.Root required>
 												<Text mb={2} fontWeight="medium">
 													メッセージ *
 												</Text>
@@ -146,7 +145,7 @@ export const Contact = () => {
 													}
 													placeholder="お問い合わせ内容をご記入ください"
 												/>
-											</FormControl>
+											</Field.Root>
 											<Button
 												type="submit"
 												colorScheme="blue"
@@ -167,14 +166,14 @@ export const Contact = () => {
 											)}
 										</VStack>
 									</form>
-								</CardBody>
-							</Card>
+								</Card.Body>
+							</Card.Root>
 						</GridItem>
 
 						<GridItem>
 							<VStack gap={6} h="full">
-								<Card flex={1}>
-									<CardBody>
+								<Card.Root flex={1}>
+									<Card.Body>
 										<VStack gap={6} align="start">
 											<Heading as="h3" size="lg">
 												SNS・連絡先
@@ -194,7 +193,7 @@ export const Contact = () => {
 															w="full"
 															_hover={{ textDecoration: "none" }}
 														>
-															<Card
+															<Card.Root
 																variant="outline"
 																cursor="pointer"
 																_hover={{
@@ -203,7 +202,7 @@ export const Contact = () => {
 																}}
 																transition="all 0.2s"
 															>
-																<CardBody py={4}>
+																<Card.Body py={4}>
 																	<Flex alignItems="center" gap={4}>
 																		<Box p={2} bg="blue.50" borderRadius="md">
 																			<IconComponent
@@ -220,20 +219,20 @@ export const Contact = () => {
 																			</Text>
 																		</Box>
 																	</Flex>
-																</CardBody>
-															</Card>
+																</Card.Body>
+															</Card.Root>
 														</Link>
 													);
 												})}
 											</VStack>
 										</VStack>
-									</CardBody>
-								</Card>
+									</Card.Body>
+								</Card.Root>
 							</VStack>
 						</GridItem>
 					</Grid>
 				</VStack>
-			</Container>
+			</Container.Root>
 		</Box>
 	);
-}
+};

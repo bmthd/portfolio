@@ -3,7 +3,6 @@ import {
 	Badge,
 	Box,
 	Card,
-	CardBody,
 	Container,
 	Grid,
 	GridItem,
@@ -20,7 +19,7 @@ export const Blog = async () => {
 
 	return (
 		<Box id="blog" as="section" py={20} bg="white">
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
 						<Heading as="h2" size="3xl" fontWeight="bold">
@@ -45,7 +44,7 @@ export const Blog = async () => {
 					>
 						{articles.map((article, index) => (
 							<GridItem key={`${article.link}-${index}`}>
-								<Card
+								<Card.Root
 									h="full"
 									overflow="hidden"
 									_hover={{
@@ -66,9 +65,7 @@ export const Blog = async () => {
 											src={article.ogpImage}
 											alt={article.title}
 											objectFit="cover"
-											w="full"
-											h="full"
-											fallback="https://zenn.dev/images/logo-transparent.png"
+											// fallback="https://zenn.dev/images/logo-transparent.png"
 										/>
 										<Box
 											position="absolute"
@@ -82,7 +79,7 @@ export const Blog = async () => {
 											<ExternalLinkIcon fontSize="16px" color="#666" />
 										</Box>
 									</Box>
-									<CardBody>
+									<Card.Body>
 										<VStack gap={3} align="start" h="full">
 											<Text fontSize="xs" color="gray.500" fontWeight="medium">
 												{formatDate(article.pubDate)}
@@ -115,8 +112,8 @@ export const Blog = async () => {
 												{article.description}
 											</Text>
 										</VStack>
-									</CardBody>
-								</Card>
+									</Card.Body>
+								</Card.Root>
 							</GridItem>
 						))}
 					</Grid>
@@ -135,10 +132,10 @@ export const Blog = async () => {
 						</Link>
 					</Box>
 				</VStack>
-			</Container>
+			</Container.Root>
 		</Box>
 	);
-}
+};
 
 const formatDate = (dateString: string) => {
 	const date = new Date(dateString);

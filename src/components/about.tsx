@@ -1,7 +1,6 @@
 import {
 	Box,
 	Card,
-	CardBody,
 	Container,
 	Grid,
 	GridItem,
@@ -13,7 +12,7 @@ import {
 export const About = () => {
 	return (
 		<Box id="about" as="section" py={20} bg="white">
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
 						<Heading as="h2" size="3xl" fontWeight="bold">
@@ -54,8 +53,8 @@ export const About = () => {
 
 						<GridItem>
 							<VStack gap={6}>
-								<Card>
-									<CardBody>
+								<Card.Root>
+									<Card.Body>
 										<VStack gap={4} align="start">
 											<Heading as="h4" size="lg">
 												経歴・背景
@@ -79,11 +78,11 @@ export const About = () => {
 												</Box>
 											</VStack>
 										</VStack>
-									</CardBody>
-								</Card>
+									</Card.Body>
+								</Card.Root>
 
-								<Card>
-									<CardBody>
+								<Card.Root>
+									<Card.Body>
 										<VStack gap={4} align="start">
 											<Heading as="h4" size="lg">
 												興味・関心
@@ -98,13 +97,13 @@ export const About = () => {
 												</Text>
 											</VStack>
 										</VStack>
-									</CardBody>
-								</Card>
+									</Card.Body>
+								</Card.Root>
 							</VStack>
 						</GridItem>
 					</Grid>
 				</VStack>
-			</Container>
+			</Container.Root>
 		</Box>
 	);
-}
+};

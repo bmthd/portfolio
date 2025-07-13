@@ -46,7 +46,7 @@ export const Header = () => {
 			borderColor="gray.200"
 			zIndex={1000}
 		>
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<Flex h={16} alignItems="center" justifyContent="space-between">
 					<Heading as="h1" size="lg" fontWeight="bold">
 						bmthd
@@ -78,7 +78,7 @@ export const Header = () => {
 						<MenuIcon fontSize="20px" />
 					</IconButton>
 				</Flex>
-			</Container>
+			</Container.Root>
 
 			{isOpen && (
 				<Box
@@ -130,4 +130,4 @@ export const Header = () => {
 			)}
 		</Box>
 	);
-}
+};

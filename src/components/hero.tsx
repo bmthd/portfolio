@@ -29,7 +29,7 @@ export const Hero = () => {
 			bg="gray.50"
 			pt={16}
 		>
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<Flex
 					direction={{ base: "column", lg: "row" }}
 					alignItems="center"
@@ -74,7 +74,7 @@ export const Hero = () => {
 					</VStack>
 					<Box flex={1} display="flex" justifyContent="center">
 						<Avatar
-							size="2xl"
+							// size="2xl"
 							name="bmthd"
 							bg="blue.500"
 							color="white"
@@ -82,7 +82,7 @@ export const Hero = () => {
 						/>
 					</Box>
 				</Flex>
-			</Container>
+			</Container.Root>
 		</Box>
 	);
-}
+};

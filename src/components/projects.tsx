@@ -4,7 +4,6 @@ import {
 	Box,
 	Button,
 	Card,
-	CardBody,
 	Container,
 	Flex,
 	Grid,
@@ -58,7 +57,7 @@ const projects = [
 export const Projects = () => {
 	return (
 		<Box id="projects" as="section" py={20} bg="white">
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
 						<Heading as="h2" size="3xl" fontWeight="bold">
@@ -76,7 +75,7 @@ export const Projects = () => {
 					>
 						{projects.map((project) => (
 							<GridItem key={project.title}>
-								<Card h="full" overflow="hidden">
+								<Card.Root h="full" overflow="hidden">
 									<Box
 										h="200px"
 										bg="gray.200"
@@ -88,7 +87,7 @@ export const Projects = () => {
 											{project.title}
 										</Text>
 									</Box>
-									<CardBody>
+									<Card.Body>
 										<VStack gap={4} align="start">
 											<Heading as="h3" size="lg">
 												{project.title}
@@ -136,13 +135,13 @@ export const Projects = () => {
 												</Button>
 											</Flex>
 										</VStack>
-									</CardBody>
-								</Card>
+									</Card.Body>
+								</Card.Root>
 							</GridItem>
 						))}
 					</Grid>
 				</VStack>
-			</Container>
+			</Container.Root>
 		</Box>
 	);
-}
+};

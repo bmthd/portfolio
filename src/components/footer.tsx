@@ -42,7 +42,7 @@ export const Footer = () => {
 
 	return (
 		<Box as="footer" bg="gray.900" color="white" py={12}>
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<VStack gap={8}>
 					<Flex
 						direction={{ base: "column", md: "row" }}
@@ -113,7 +113,7 @@ export const Footer = () => {
 						</Text>
 					</Flex>
 				</VStack>
-			</Container>
+			</Container.Root>
 		</Box>
 	);
-}
+};

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@yamada-ui/lucide": "^1.10.5",
-    "@yamada-ui/react": "^1.7.8-dev-20250711103559",
+    "@yamada-ui/react": "^2.0.0-next-20250710072846",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -2,7 +2,6 @@ import {
 	Badge,
 	Box,
 	Card,
-	CardBody,
 	Container,
 	Flex,
 	Grid,
@@ -70,7 +69,7 @@ const technologies = [
 export const Skills = () => {
 	return (
 		<Box id="skills" as="section" py={20} bg="gray.50">
-			<Container maxW="7xl">
+			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
 						<Heading as="h2" size="3xl" fontWeight="bold">
@@ -88,8 +87,8 @@ export const Skills = () => {
 					>
 						{skillCategories.map((category) => (
 							<GridItem key={category.title}>
-								<Card h="full">
-									<CardBody>
+								<Card.Root h="full">
+									<Card.Body>
 										<VStack gap={6} align="start">
 											<Heading as="h3" size="lg">
 												{category.title}
@@ -117,8 +116,8 @@ export const Skills = () => {
 												))}
 											</VStack>
 										</VStack>
-									</CardBody>
-								</Card>
+									</Card.Body>
+								</Card.Root>
 							</GridItem>
 						))}
 					</Grid>
@@ -144,7 +143,7 @@ export const Skills = () => {
 						</Wrap>
 					</VStack>
 				</VStack>
-			</Container>
+			</Container.Root>
 		</Box>
 	);
-}
+};

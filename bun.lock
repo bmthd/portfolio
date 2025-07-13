@@ -4,6 +4,7 @@
     "": {
       "name": "portfolio",
       "dependencies": {
+        "@yamada-ui/lucide": "^1.10.5",
         "@yamada-ui/react": "^1.7.8-dev-20250711103559",
         "next": "15.3.5",
         "react": "^19.0.0",
@@ -240,6 +241,8 @@
     "@yamada-ui/list": ["@yamada-ui/list@1.0.54", "", { "dependencies": { "@yamada-ui/core": "1.17.3", "@yamada-ui/icon": "1.1.21", "@yamada-ui/utils": "1.7.2" }, "peerDependencies": { "react": ">=18" } }, "sha512-bNWDTOpzi+6TmbxNL/wYjivQ1A3O9Piy7pM1jU5r3YSeX9g8XzvXpT8S2luDPcXCLzOLx5X9b57KpNgbVD4AQQ=="],
 
     "@yamada-ui/loading": ["@yamada-ui/loading@1.1.33", "", { "dependencies": { "@yamada-ui/core": "1.17.3", "@yamada-ui/icon": "1.1.21", "@yamada-ui/motion": "2.3.4", "@yamada-ui/portal": "1.0.30", "@yamada-ui/use-timeout": "1.0.29", "@yamada-ui/utils": "1.7.2", "react-remove-scroll": "^2.6.3" }, "peerDependencies": { "react": ">=18" } }, "sha512-DbQreq/3m2UGDL7w10LM2F/vI79TePkoqeQsiqgqmI1PsW/K62a2YiWjAw6Tg0yOGjaijrTHdQZO3V//M8UVjQ=="],
+
+    "@yamada-ui/lucide": ["@yamada-ui/lucide@1.10.5", "", { "dependencies": { "@yamada-ui/core": "1.17.3", "@yamada-ui/icon": "1.1.21", "@yamada-ui/utils": "1.7.2", "lucide-react": "0.475.0" }, "peerDependencies": { "react": ">=18" } }, "sha512-BSbMdGbdZFrt0eR1gMM7AvfoJCBMZEcYVq0/gonQKti7jie8rCbe/HAg3REZpIeA/lONlxyzP0ODn/vYmHlpbg=="],
 
     "@yamada-ui/menu": ["@yamada-ui/menu@1.5.7", "", { "dependencies": { "@yamada-ui/core": "1.17.3", "@yamada-ui/icon": "1.1.21", "@yamada-ui/motion": "2.3.4", "@yamada-ui/popover": "1.5.4", "@yamada-ui/transitions": "1.1.20", "@yamada-ui/use-clickable": "1.2.22", "@yamada-ui/use-controllable-state": "1.0.29", "@yamada-ui/use-descendant": "1.0.31", "@yamada-ui/use-disclosure": "1.1.6", "@yamada-ui/utils": "1.7.2" }, "peerDependencies": { "react": ">=18" } }, "sha512-gg6kexMvs7mx33pdB9WwmTs8G3Qpf9kJgzOtqUQ89SDFNqCY7/OxroUlr/tYzE2Ju5S2m5TO8otdS1zV9UHrvw=="],
 
@@ -480,6 +483,8 @@
     "lines-and-columns": ["lines-and-columns@1.2.4", "", {}, "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg=="],
 
     "loose-envify": ["loose-envify@1.4.0", "", { "dependencies": { "js-tokens": "^3.0.0 || ^4.0.0" }, "bin": { "loose-envify": "cli.js" } }, "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q=="],
+
+    "lucide-react": ["lucide-react@0.475.0", "", { "peerDependencies": { "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-NJzvVu1HwFVeZ+Gwq2q00KygM1aBhy/ZrhY9FsAgJtpB+E4R7uxRk9M2iKvHa6/vNxZydIB59htha4c2vvwvVg=="],
 
     "motion": ["motion@12.5.0", "", { "dependencies": { "framer-motion": "^12.5.0", "tslib": "^2.4.0" }, "peerDependencies": { "@emotion/is-prop-valid": "*", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@emotion/is-prop-valid", "react", "react-dom"] }, "sha512-BTAYKszMmTvXSsIyeHNMPSicjWgUA4j7OmZv1xPpthm4sPub3ch66fy9U7BhJ1uXNL3YeprsIegzuvps3FkEMw=="],
 

@@ -1,28 +1,19 @@
-"use client";
-
-import { SECTIONS } from "@/constants/sections";
 import {
 	Avatar,
 	Box,
-	type BoxProps,
-	Button,
 	Container,
 	Flex,
 	Heading,
 	Text,
 	VStack,
+	type BoxProps,
 } from "@yamada-ui/react";
+
+import { HeroActions } from "./hero-actions";
 
 interface HeroProps extends BoxProps {}
 
 export const Hero = ({ ...props }: HeroProps) => {
-	const scrollToSection = (href: string) => {
-		const element = document.querySelector(href);
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
-		}
-	};
-
 	return (
 		<Box
 			as="section"
@@ -59,26 +50,10 @@ export const Hero = ({ ...props }: HeroProps) => {
 							ソフトウェアエンジニアとして、モダンなウェブ技術を使用してユーザー体験を向上させるアプリケーションを開発しています。
 							TypeScript、React、Next.jsを中心とした技術スタックで、スケーラブルで保守性の高いソフトウェアの構築に取り組んでいます。
 						</Text>
-						<Flex gap={4} direction={{ base: "column", sm: "row" }}>
-							<Button
-								size="lg"
-								colorScheme="blue"
-								onClick={() => scrollToSection(`#${SECTIONS.CONTACT}`)}
-							>
-								お問い合わせ
-							</Button>
-							<Button
-								size="lg"
-								variant="outline"
-								onClick={() => scrollToSection(`#${SECTIONS.PROJECTS}`)}
-							>
-								プロジェクトを見る
-							</Button>
-						</Flex>
+						<HeroActions />
 					</VStack>
 					<Box flex={1} display="flex" justifyContent="center">
 						<Avatar
-							// size="2xl"
 							name="bmthd"
 							bg="blue.500"
 							color="white"

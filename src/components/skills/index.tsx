@@ -1,6 +1,7 @@
 import {
 	Badge,
 	Box,
+	type BoxProps,
 	Card,
 	Container,
 	Flex,
@@ -11,7 +12,6 @@ import {
 	Text,
 	VStack,
 	Wrap,
-	type BoxProps,
 } from "@yamada-ui/react";
 
 const skillCategories = [

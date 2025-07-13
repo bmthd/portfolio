@@ -1,81 +1,36 @@
 "use client";
 
-import { SECTIONS } from "@/constants/sections";
 import { MenuIcon, XIcon } from "@yamada-ui/lucide";
 import {
 	Box,
-	Container,
 	Flex,
-	Heading,
 	IconButton,
 	Link,
 	VStack,
 } from "@yamada-ui/react";
 import { useState } from "react";
+import { SECTIONS } from "@/constants/sections";
 
 const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
 	href: `#${value}`,
 }));
 
-export const Header = () => {
+export const MobileMenu = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const onOpen = () => setIsOpen(true);
 	const onClose = () => setIsOpen(false);
 
-	const scrollToSection = (href: string) => {
-		const element = document.querySelector(href);
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
-		}
-		onClose();
-	};
-
 	return (
-		<Box
-			as="header"
-			position="fixed"
-			top={0}
-			w="full"
-			bg="white"
-			backdropFilter="blur(10px)"
-			borderBottom="1px"
-			borderColor="gray.200"
-			zIndex={1000}
-		>
-			<Container.Root maxW="7xl">
-				<Flex h={16} alignItems="center" justifyContent="space-between">
-					<Heading as="h1" size="lg" fontWeight="bold">
-						bmthd
-					</Heading>
-
-					<Flex display={{ base: "none", md: "flex" }} gap={8}>
-						{navItems.map((item) => (
-							<Link
-								key={item.label}
-								onClick={() => scrollToSection(item.href)}
-								cursor="pointer"
-								fontSize="sm"
-								fontWeight="medium"
-								color="gray.600"
-								_hover={{ color: "blue.500" }}
-								transition="color 0.2s"
-							>
-								{item.label}
-							</Link>
-						))}
-					</Flex>
-
-					<IconButton
-						display={{ base: "flex", md: "none" }}
-						onClick={onOpen}
-						variant="ghost"
-						aria-label="Open menu"
-					>
-						<MenuIcon fontSize="20px" />
-					</IconButton>
-				</Flex>
-			</Container.Root>
+		<>
+			<IconButton
+				display={{ base: "flex", md: "none" }}
+				onClick={onOpen}
+				variant="ghost"
+				aria-label="Open menu"
+			>
+				<MenuIcon fontSize="20px" />
+			</IconButton>
 
 			{isOpen && (
 				<Box
@@ -111,8 +66,8 @@ export const Header = () => {
 							{navItems.map((item) => (
 								<Link
 									key={item.label}
-									onClick={() => scrollToSection(item.href)}
-									cursor="pointer"
+									href={item.href}
+									onClick={onClose}
 									fontSize="lg"
 									fontWeight="medium"
 									color="gray.600"
@@ -125,6 +80,6 @@ export const Header = () => {
 					</Box>
 				</Box>
 			)}
-		</Box>
+		</>
 	);
 };

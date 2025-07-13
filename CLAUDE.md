@@ -93,6 +93,7 @@
 - [ ] 基本的にアロー関数を使用、this参照やasserts関数などで必要な場合のみfunction宣言を使用
 - [ ] コンポーネントの関心事を分離、自分自身がどのように使われるかを知らない設計にする（props経由で外部から制御）
 - [ ] ラッパーコンポーネントのPropsを継承する（例: `interface ComponentProps extends BoxProps {}`）
+- [ ] 'use client'を最小限に抑制、各セクションはフォルダのindex.tsxでServer Componentを保持、インタラクションが必要な場合は別コンポーネントに切り出し
 
 ### デプロイ
 - [ ] Vercel/Netlify 等での自動デプロイ

@@ -68,7 +68,6 @@ export const Blog = async ({ ...props }: BlogProps) => {
 											src={article.ogpImage}
 											alt={article.title}
 											objectFit="cover"
-											// fallback="https://zenn.dev/images/logo-transparent.png"
 										/>
 										<Box
 											position="absolute"

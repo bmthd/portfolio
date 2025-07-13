@@ -1,13 +1,7 @@
-"use client";
-
-import {
-	ChevronUpIcon,
-	GithubIcon,
-	LinkedinIcon,
-	TwitterIcon,
-} from "@yamada-ui/lucide";
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "@yamada-ui/lucide";
 import {
 	Box,
+	type BoxProps,
 	Container,
 	Flex,
 	IconButton,
@@ -16,6 +10,8 @@ import {
 	Text,
 	VStack,
 } from "@yamada-ui/react";
+
+import { ScrollToTopButton } from "./scroll-to-top-button";
 
 const socialLinks = [
 	{
@@ -35,13 +31,11 @@ const socialLinks = [
 	},
 ];
 
-export const Footer = () => {
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	};
+interface FooterProps extends BoxProps {}
 
+export const Footer = ({ ...props }: FooterProps) => {
 	return (
-		<Box as="footer" bg="gray.900" color="white" py={12}>
+		<Box as="footer" bg="gray.900" color="white" py={12} {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={8}>
 					<Flex
@@ -83,16 +77,7 @@ export const Footer = () => {
 									);
 								})}
 							</Flex>
-							<IconButton
-								onClick={scrollToTop}
-								variant="outline"
-								borderColor="gray.600"
-								color="gray.400"
-								_hover={{ color: "white", borderColor: "gray.400" }}
-								aria-label="上に戻る"
-							>
-								<ChevronUpIcon fontSize="20px" />
-							</IconButton>
+							<ScrollToTopButton />
 						</VStack>
 					</Flex>
 

@@ -11,14 +11,17 @@ import {
 	Link,
 	Text,
 	VStack,
+	type BoxProps,
 } from "@yamada-ui/react";
 import { fetchBlogArticles } from "@/lib/blog";
 
-export const Blog = async () => {
+interface BlogProps extends BoxProps {}
+
+export const Blog = async ({ ...props }: BlogProps) => {
 	const { articles } = await fetchBlogArticles();
 
 	return (
-		<Box id="blog" as="section" py={20} bg="white">
+		<Box as="section" py={20} bg="white" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">

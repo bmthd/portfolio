@@ -11,14 +11,15 @@ import {
 	VStack,
 } from "@yamada-ui/react";
 import { useState } from "react";
+import { SECTIONS } from "@/constants/sections";
 
 const navItems = [
-	{ label: "Home", href: "#home" },
-	{ label: "About", href: "#about" },
-	{ label: "Skills", href: "#skills" },
-	{ label: "Projects", href: "#projects" },
-	{ label: "Blog", href: "#blog" },
-	{ label: "Contact", href: "#contact" },
+	{ label: "Home", href: `#${SECTIONS.HOME}` },
+	{ label: "About", href: `#${SECTIONS.ABOUT}` },
+	{ label: "Skills", href: `#${SECTIONS.SKILLS}` },
+	{ label: "Projects", href: `#${SECTIONS.PROJECTS}` },
+	{ label: "Blog", href: `#${SECTIONS.BLOG}` },
+	{ label: "Contact", href: `#${SECTIONS.CONTACT}` },
 ];
 
 export const Header = () => {

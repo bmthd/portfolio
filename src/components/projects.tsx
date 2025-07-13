@@ -13,6 +13,7 @@ import {
 	Text,
 	VStack,
 	Wrap,
+	type BoxProps,
 } from "@yamada-ui/react";
 
 const projects = [
@@ -54,9 +55,11 @@ const projects = [
 	},
 ];
 
-export const Projects = () => {
+interface ProjectsProps extends BoxProps {}
+
+export const Projects = ({ ...props }: ProjectsProps) => {
 	return (
-		<Box id="projects" as="section" py={20} bg="white">
+		<Box as="section" py={20} bg="white" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">

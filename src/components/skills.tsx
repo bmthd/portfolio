@@ -11,6 +11,7 @@ import {
 	Text,
 	VStack,
 	Wrap,
+	type BoxProps,
 } from "@yamada-ui/react";
 
 const skillCategories = [
@@ -66,9 +67,11 @@ const technologies = [
 	"Vercel",
 ];
 
-export const Skills = () => {
+interface SkillsProps extends BoxProps {}
+
+export const Skills = ({ ...props }: SkillsProps) => {
 	return (
-		<Box id="skills" as="section" py={20} bg="gray.50">
+		<Box as="section" py={20} bg="gray.50" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">

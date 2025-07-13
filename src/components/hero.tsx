@@ -1,8 +1,10 @@
 "use client";
 
+import { SECTIONS } from "@/constants/sections";
 import {
 	Avatar,
 	Box,
+	type BoxProps,
 	Button,
 	Container,
 	Flex,
@@ -11,7 +13,9 @@ import {
 	VStack,
 } from "@yamada-ui/react";
 
-export const Hero = () => {
+interface HeroProps extends BoxProps {}
+
+export const Hero = ({ ...props }: HeroProps) => {
 	const scrollToSection = (href: string) => {
 		const element = document.querySelector(href);
 		if (element) {
@@ -21,13 +25,13 @@ export const Hero = () => {
 
 	return (
 		<Box
-			id="home"
 			as="section"
 			minH="100vh"
 			display="flex"
 			alignItems="center"
 			bg="gray.50"
 			pt={16}
+			{...props}
 		>
 			<Container.Root maxW="7xl">
 				<Flex
@@ -59,14 +63,14 @@ export const Hero = () => {
 							<Button
 								size="lg"
 								colorScheme="blue"
-								onClick={() => scrollToSection("#contact")}
+								onClick={() => scrollToSection(`#${SECTIONS.CONTACT}`)}
 							>
 								お問い合わせ
 							</Button>
 							<Button
 								size="lg"
 								variant="outline"
-								onClick={() => scrollToSection("#projects")}
+								onClick={() => scrollToSection(`#${SECTIONS.PROJECTS}`)}
 							>
 								プロジェクトを見る
 							</Button>

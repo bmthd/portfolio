@@ -7,11 +7,14 @@ import {
 	Heading,
 	Text,
 	VStack,
+	type BoxProps,
 } from "@yamada-ui/react";
 
-export const About = () => {
+interface AboutProps extends BoxProps {}
+
+export const About = ({ ...props }: AboutProps) => {
 	return (
-		<Box id="about" as="section" py={20} bg="white">
+		<Box as="section" py={20} bg="white" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">

@@ -21,6 +21,7 @@ import {
 	Text,
 	Textarea,
 	VStack,
+	type BoxProps,
 } from "@yamada-ui/react";
 import { useState } from "react";
 
@@ -51,7 +52,9 @@ const socialLinks = [
 	},
 ];
 
-export const Contact = () => {
+interface ContactProps extends BoxProps {}
+
+export const Contact = ({ ...props }: ContactProps) => {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -83,7 +86,7 @@ export const Contact = () => {
 	};
 
 	return (
-		<Box id="contact" as="section" py={20} bg="gray.50">
+		<Box as="section" py={20} bg="gray.50" {...props}>
 			<Container.Root maxW="7xl">
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">

@@ -46,14 +46,14 @@ const parser: Parser<CustomFeed, CustomItem> = new Parser({
 function extractOGPImage(content: string): string | null {
 	// content:encodedからOGP画像を抽出
 	const ogImageMatch = content.match(
-		/<meta\s+property=["|']og:image["|']\s+content=["|']([^"']+)["|']/i,
+		/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i,
 	);
 	if (ogImageMatch) {
 		return ogImageMatch[1];
 	}
 
 	// 最初の画像タグから画像を抽出
-	const imgMatch = content.match(/<img[^>]+src=["|']([^"']+)["|']/i);
+	const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
 	if (imgMatch) {
 		return imgMatch[1];
 	}

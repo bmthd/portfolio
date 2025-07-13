@@ -1,4 +1,3 @@
-import { Box } from "@yamada-ui/react";
 import { About } from "@/components/about";
 import { Blog } from "@/components/blog";
 import { Contact } from "@/components/contact";
@@ -8,9 +7,15 @@ import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
 import { SECTIONS } from "@/constants/sections";
+import { Box } from "@yamada-ui/react";
 
 export default () => (
-	<Box minH="100vh" display="flex" flexDirection="column">
+	<Box
+		minH="100vh"
+		display="flex"
+		flexDirection="column"
+		scrollBehavior="smooth"
+	>
 		<Header />
 		<Box as="main">
 			<Hero id={SECTIONS.HOME} />

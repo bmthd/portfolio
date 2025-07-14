@@ -1,10 +1,10 @@
-import { ExternalLinkIcon } from "@yamada-ui/lucide";
 import {
 	Badge,
 	Box,
 	type BoxProps,
 	Card,
 	Container,
+	ExternalLinkIcon,
 	Grid,
 	GridItem,
 	Image,

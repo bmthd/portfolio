@@ -15,7 +15,6 @@
 		"check:all": "for script in $(npm run | grep 'check:' | grep -v 'check:all' | awk '{print $1}'); do bun run $script; done"
 	},
 	"dependencies": {
-		"@yamada-ui/lucide": "^1.10.5",
 		"@yamada-ui/react": "^2.0.0-next-20250710072846",
 		"next": "15.3.5",
 		"react": "^19.0.0",

@@ -1,4 +1,3 @@
-import { ExternalLinkIcon, GithubIcon } from "@yamada-ui/lucide";
 import {
 	Badge,
 	Box,
@@ -6,14 +5,16 @@ import {
 	Button,
 	Card,
 	Container,
+	ExternalLinkIcon,
 	Flex,
+	GithubIcon,
 	Grid,
 	GridItem,
-	Link,
 	Text,
 	VStack,
 	Wrap,
 } from "@yamada-ui/react";
+import Link from "next/link";
 import { Section } from "@/ui/section";
 
 const projects = [

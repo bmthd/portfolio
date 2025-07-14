@@ -1,7 +1,6 @@
 "use client";
 
-import { ChevronUpIcon } from "@yamada-ui/lucide";
-import { IconButton } from "@yamada-ui/react";
+import { ChevronUpIcon, IconButton } from "@yamada-ui/react";
 
 export const ScrollToTopButton = () => {
 	const scrollToTop = () => {

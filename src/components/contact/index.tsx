@@ -1,19 +1,17 @@
 import {
-	GithubIcon,
-	LinkedinIcon,
-	MailIcon,
-	TwitterIcon,
-} from "@yamada-ui/lucide";
-import {
 	Box,
 	type BoxProps,
 	Card,
 	Container,
 	Flex,
+	GithubIcon,
 	Grid,
 	GridItem,
 	Link,
+	LinkedinIcon,
+	MailIcon,
 	Text,
+	TwitterIcon,
 	VStack,
 } from "@yamada-ui/react";
 import { Section } from "@/ui/section";

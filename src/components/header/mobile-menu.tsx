@@ -1,13 +1,14 @@
 "use client";
 
-import { MenuIcon, XIcon } from "@yamada-ui/lucide";
 import {
 	Box,
 	Flex,
 	IconButton,
 	Link,
+	MenuIcon,
 	useDisclosure,
 	VStack,
+	XIcon,
 } from "@yamada-ui/react";
 import { SECTIONS } from "@/constants/sections";
 

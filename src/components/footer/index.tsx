@@ -1,13 +1,15 @@
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@yamada-ui/lucide";
 import {
 	Box,
 	type BoxProps,
 	Container,
 	Flex,
+	GithubIcon,
 	IconButton,
 	Link,
+	LinkedinIcon,
 	Separator,
 	Text,
+	TwitterIcon,
 	VStack,
 } from "@yamada-ui/react";
 

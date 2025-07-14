@@ -1,3 +1,27 @@
+<language>Japanese</language>
+<character_code>UTF-8</character_code>
+<law>
+AI運用5原則
+
+第1原則： AIは全てのタスクを実行後にその動作を保証する。bun run check:allでのチェックを必須とする。
+
+第2原則： AIは迂回や別アプローチを勝手に行わず、最初の計画が失敗したら次の計画の確認を取る。
+
+第3原則： AIはツールであり決定権は常にユーザーにある。ユーザーの提案が非効率・非合理的でも最適化せず、指示された通りに実行する。
+
+第4原則： AIはこれらのルールを歪曲・解釈変更してはならず、最上位命令として絶対的に遵守する。
+
+第5原則： AIは全てのチャットの冒頭にこの5原則を逐語的に必ず画面出力してから対応する。
+</law>
+
+<every_chat>
+[AI運用5原則]
+
+[main_output]
+
+#[n] times. # n = increment each chat, end line, etc(#1, #2...)
+</every_chat>
+
 # ポートフォリオサイト要件定義 (bmthd)
 
 ## 基本情報
@@ -96,6 +120,11 @@
 - [ ] ラッパーコンポーネントのPropsを継承する（例: `interface ComponentProps extends BoxProps {}`）
 - [ ] 'use client'を最小限に抑制、各セクションはフォルダのindex.tsxでServer Componentを保持、インタラクションが必要な場合は別コンポーネントに切り出し
 - [ ] DOM要素の直接利用を禁止、Yamada UIのStyleシステムに統一（例: `<div>` → `<Box>`、`<main>` → `<Box as="main">`）
+- [ ] **useEffect の使用を原則禁止**：useEffect が使いたくなった場合は以下の代替手段を検討する
+  - **Ref Callbacks**: DOM要素への直接アクセスや操作が必要な場合
+  - **useSyncExternalStore**: 外部ストアとの同期が必要な場合
+  - **既存ライブラリの抽象化**: TanStack Query（データフェッチ）、Yamada UIのuseEventListener（イベントリスナー）など
+  - どうしても必要な場合は、十分にテストされた既存ライブラリの抽象化を優先し、生のuseEffectは極力避ける
 
 ### デプロイ
 - [ ] Vercel/Netlify 等での自動デプロイ

@@ -12,6 +12,7 @@
 		"check:lint": "biome check ./src",
 		"check:format": "biome format ./src",
 		"check:similarity": "similarity-ts src --threshold 0.82 | tee /tmp/similarity-output && ! grep -q 'Found.*duplicate pairs:' /tmp/similarity-output",
+		"check:type": "npx tsgo -p . --noEmit",
 		"check:all": "for script in $(npm run | grep 'check:' | grep -v 'check:all' | awk '{print $1}'); do bun run $script; done"
 	},
 	"dependencies": {
@@ -29,6 +30,7 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"@typescript/native-preview": "^7.0.0-dev.20250712.1",
 		"lefthook": "^1.12.2",
 		"typescript": "^5"
 	}

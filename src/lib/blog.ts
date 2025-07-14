@@ -43,7 +43,7 @@ const parser: Parser<CustomFeed, CustomItem> = new Parser({
 });
 
 // OGP画像を抽出する関数
-function extractOGPImage(content: string): string | null {
+export function extractOGPImage(content: string): string | null {
 	// content:encodedからOGP画像を抽出
 	const ogImageMatch = content.match(
 		/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i,

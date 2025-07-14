@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Parser from "rss-parser";
+import { extractOGPImage } from "@/lib/blog";
 
 interface CustomFeed {
 	title?: string;
@@ -29,25 +30,6 @@ const parser: Parser<CustomFeed, CustomItem> = new Parser({
 		item: ["content:encoded", "enclosure"],
 	},
 });
-
-// OGP画像を抽出する関数
-function extractOGPImage(content: string): string | null {
-	// content:encodedからOGP画像を抽出
-	const ogImageMatch = content.match(
-		/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i,
-	);
-	if (ogImageMatch) {
-		return ogImageMatch[1];
-	}
-
-	// 最初の画像タグから画像を抽出
-	const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
-	if (imgMatch) {
-		return imgMatch[1];
-	}
-
-	return null;
-}
 
 export async function GET() {
 	try {

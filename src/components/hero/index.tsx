@@ -40,20 +40,21 @@ export const Hero = ({ ...props }: HeroProps) => {
 							fontWeight="bold"
 							lineHeight="shorter"
 							color="gray.900"
-							display="flex"
 						>
-							<Avatar
-								name="bmthd"
-								bg="blue.500"
-								color="white"
-								size="xl"
-								src="https://picsum.photos/200/200"
-							/>
-							こんにちは！ 私は
-							<Text as="span" color="blue.500">
-								bmthd
-							</Text>
-							です
+							<Flex alignItems="center" gap={4}>
+								<Avatar
+									name="bmthd"
+									bg="blue.500"
+									color="white"
+									size="xl"
+									src="https://picsum.photos/200/200"
+								/>
+								こんにちは！ 私は
+								<Text as="span" color="blue.500">
+									bmthd
+								</Text>
+								です
+							</Flex>
 						</Section.Heading>
 						<Text fontSize="xl" color="gray.600" maxW="2xl">
 							ソフトウェアエンジニアとして、モダンなウェブ技術を使用してユーザー体験を向上させるアプリケーションを開発しています。

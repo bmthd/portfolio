@@ -43,7 +43,7 @@ const parser: Parser<CustomFeed, CustomItem> = new Parser({
 });
 
 // OGP画像を抽出する関数
-export function extractOGPImage(content: string): string | null {
+export const extractOGPImage = (content: string): string | null => {
 	// content:encodedからOGP画像を抽出
 	const ogImageMatch = content.match(
 		/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i,
@@ -59,9 +59,9 @@ export function extractOGPImage(content: string): string | null {
 	}
 
 	return null;
-}
+};
 
-export async function fetchBlogArticles(): Promise<BlogData> {
+export const fetchBlogArticles = async (): Promise<BlogData> => {
 	try {
 		const feed = await parser.parseURL("https://zenn.dev/bmth/feed");
 
@@ -90,4 +90,4 @@ export async function fetchBlogArticles(): Promise<BlogData> {
 			feedTitle: "bmth's Blog",
 		};
 	}
-}
+};

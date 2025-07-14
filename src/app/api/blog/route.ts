@@ -31,7 +31,7 @@ const parser: Parser<CustomFeed, CustomItem> = new Parser({
 	},
 });
 
-export async function GET() {
+export const GET = async () => {
 	try {
 		const feed = await parser.parseURL("https://zenn.dev/bmth/feed");
 
@@ -63,4 +63,4 @@ export async function GET() {
 			{ status: 500 },
 		);
 	}
-}
+};

@@ -8,19 +8,17 @@ import {
 } from "@yamada-ui/react";
 import { createNextLevel, HeadingLevelContext, useLevel } from "./context";
 
-export const Root = ({ children, ...props }: BoxProps) => {
+export const Root = (props: BoxProps) => {
 	const level = useLevel();
 	const nextLevel = createNextLevel(level);
 	return (
 		<HeadingLevelContext value={{ level: nextLevel }}>
-			<Box as="section" {...props}>
-				{children}
-			</Box>
+			<Box as="section" {...props} />
 		</HeadingLevelContext>
 	);
 };
 
-export const Heading = ({ children, ...props }: HeadingProps) => {
+export const Heading = (props: HeadingProps) => {
 	const level = useLevel();
 	switch (level) {
 		case 1:

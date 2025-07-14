@@ -1,6 +1,5 @@
 import {
 	Avatar,
-	Box,
 	type BoxProps,
 	Container,
 	Flex,
@@ -40,9 +39,17 @@ export const Hero = ({ ...props }: HeroProps) => {
 							size="4xl"
 							fontWeight="bold"
 							lineHeight="shorter"
+							color="gray.900"
+							display="flex"
 						>
-							<Text>こんにちは！</Text>
-							私は
+							<Avatar
+								name="bmthd"
+								bg="blue.500"
+								color="white"
+								size="xl"
+								src="https://picsum.photos/200/200"
+							/>
+							こんにちは！ 私は
 							<Text as="span" color="blue.500">
 								bmthd
 							</Text>
@@ -54,9 +61,6 @@ export const Hero = ({ ...props }: HeroProps) => {
 						</Text>
 						<HeroActions />
 					</VStack>
-					<Box flex={1} display="flex" justifyContent="center">
-						<Avatar name="bmthd" bg="blue.500" color="white" fontSize="6xl" />
-					</Box>
 				</Flex>
 			</Container.Root>
 		</Section.Root>

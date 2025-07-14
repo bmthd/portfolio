@@ -11,7 +11,8 @@
 		"prepare": "lefthook install",
 		"check:lint": "biome check ./src",
 		"check:format": "biome format ./src",
-		"check:similarity": "similarity-ts src"
+		"check:similarity": "similarity-ts src",
+		"check:all": "for script in $(npm run | grep 'check:' | grep -v 'check:all' | awk '{print $1}'); do bun run $script; done"
 	},
 	"dependencies": {
 		"@yamada-ui/lucide": "^1.10.5",
@@ -24,6 +25,8 @@
 	"devDependencies": {
 		"@anthropic-ai/claude-code": "^1.0.51",
 		"@biomejs/biome": "^2.1.1",
+		"@getgrit/cli": "^0.1.0-alpha.1743007075",
+		"@getgrit/gritql": "^0.0.1",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",

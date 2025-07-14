@@ -31,5 +31,5 @@
 			}
 		}
 	},
-	"plugins": ["rules/no-lowercase-jsx-components.grit"]
+	"plugins": [".grit/patterns/no_use_effect.grit", ".grit/patterns/no_lowercase_jsx_components.grit"]
 }

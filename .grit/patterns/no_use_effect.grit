@@ -1,0 +1,30 @@
+language js
+
+function register($useEffect) {
+  register_diagnostic(
+    span = $useEffect,
+    message = "useEffect is prohibited. Use ref callbacks, useSyncExternalStore, or abstracted libraries like TanStack Query or Yamada UI's useEventListener instead.",
+    severity = "error"
+  )
+}
+
+or {
+  `useEffect($_)` as $useEffect where {
+    register($useEffect)
+  },
+  `useLayoutEffect($_)` as $useEffect where {
+    register($useEffect)
+  },
+  `useInsertionEffect($_)` as $useEffect where {
+    register($useEffect)
+  },
+  `React.useEffect($_)` as $useEffect where {
+    register($useEffect)
+  },
+  `React.useLayoutEffect($_)` as $useEffect where {
+    register($useEffect)
+  },
+  `React.useInsertionEffect($_)` as $useEffect where {
+    register($useEffect)
+  },
+}

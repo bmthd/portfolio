@@ -6,7 +6,8 @@
 		"useIgnoreFile": false
 	},
 	"files": {
-		"ignoreUnknown": false
+		"ignoreUnknown": false,
+		"includes": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.js", "./src/**/*.jsx"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -31,5 +32,9 @@
 			}
 		}
 	},
-	"plugins": [".grit/patterns/no_use_effect.grit", ".grit/patterns/no_lowercase_jsx_components.grit"]
+	"plugins": [
+		".grit/patterns/no_use_effect.grit",
+		".grit/patterns/no_lowercase_jsx_components.grit",
+		".grit/patterns/no_direct_next_link.grit"
+	]
 }

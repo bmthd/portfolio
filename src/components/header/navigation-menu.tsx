@@ -1,5 +1,6 @@
-import { Flex, Link } from "@yamada-ui/react";
+import { Flex } from "@yamada-ui/react";
 import { SECTIONS } from "@/constants/sections";
+import { NextLink } from "@/ui/next-link";
 
 const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
@@ -10,7 +11,7 @@ export const NavigationMenu = () => {
 	return (
 		<Flex display={{ base: "none", md: "flex" }} gap={8}>
 			{navItems.map((item) => (
-				<Link
+				<NextLink
 					key={item.label}
 					href={item.href}
 					fontSize="sm"
@@ -20,7 +21,7 @@ export const NavigationMenu = () => {
 					transition="color 0.2s"
 				>
 					{item.label}
-				</Link>
+				</NextLink>
 			))}
 		</Flex>
 	);

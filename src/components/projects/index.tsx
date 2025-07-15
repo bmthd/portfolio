@@ -2,7 +2,6 @@ import {
 	Badge,
 	Box,
 	type BoxProps,
-	Button,
 	Card,
 	Container,
 	ExternalLinkIcon,
@@ -14,7 +13,7 @@ import {
 	VStack,
 	Wrap,
 } from "@yamada-ui/react";
-import Link from "next/link";
+import { NextLinkButton } from "@/ui/next-link";
 import { Section } from "@/ui/section";
 
 const projects = [
@@ -111,11 +110,9 @@ export const Projects = ({ ...props }: ProjectsProps) => {
 												))}
 											</Wrap>
 											<Flex gap={3} w="full">
-												<Button
-													as={Link}
+												<NextLinkButton
 													href={project.github}
-													target="_blank"
-													rel="noopener noreferrer"
+													external
 													variant="outline"
 													size="sm"
 													flex={1}
@@ -123,12 +120,10 @@ export const Projects = ({ ...props }: ProjectsProps) => {
 												>
 													<GithubIcon fontSize="16px" />
 													GitHub
-												</Button>
-												<Button
-													as={Link}
+												</NextLinkButton>
+												<NextLinkButton
 													href={project.demo}
-													target="_blank"
-													rel="noopener noreferrer"
+													external
 													colorScheme="blue"
 													size="sm"
 													flex={1}
@@ -136,7 +131,7 @@ export const Projects = ({ ...props }: ProjectsProps) => {
 												>
 													<ExternalLinkIcon fontSize="16px" />
 													Demo
-												</Button>
+												</NextLinkButton>
 											</Flex>
 										</VStack>
 									</Card.Body>

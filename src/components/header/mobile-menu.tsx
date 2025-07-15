@@ -4,13 +4,13 @@ import {
 	Box,
 	Flex,
 	IconButton,
-	Link,
 	MenuIcon,
 	useDisclosure,
 	VStack,
 	XIcon,
 } from "@yamada-ui/react";
 import { SECTIONS } from "@/constants/sections";
+import { NextLink } from "@/ui/next-link";
 
 const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
@@ -61,7 +61,7 @@ export const MobileMenu = () => {
 						</Flex>
 						<VStack gap={4} align="start">
 							{navItems.map((item) => (
-								<Link
+								<NextLink
 									key={item.label}
 									href={item.href}
 									onClick={onClose}
@@ -71,7 +71,7 @@ export const MobileMenu = () => {
 									_hover={{ color: "blue.500" }}
 								>
 									{item.label}
-								</Link>
+								</NextLink>
 							))}
 						</VStack>
 					</Box>

@@ -1,0 +1,16 @@
+language js
+
+or {
+  `import $_ from "next/link"` as $nextLink,
+  `import { $_ } from "next/link"` as $nextLink,
+  `import type { $_ } from "next/link"` as $nextLink,
+  `const $_ = require("next/link")` as $nextLink,
+  `const { $_ } = require("next/link")` as $nextLink,
+  `require("next/link")` as $nextLink
+} where {
+  register_diagnostic(
+    span = $nextLink,
+    message = "Direct import of next/link is prohibited. Use NextLink, NextLinkButton, or NextLinkIconButton from src/ui/next-link.tsx instead.",
+    severity = "error"
+  )
+}

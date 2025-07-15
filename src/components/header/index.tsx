@@ -1,4 +1,5 @@
-import { Box, type BoxProps, Container, Flex, Link } from "@yamada-ui/react";
+import { Box, type BoxProps, Container, Flex } from "@yamada-ui/react";
+import { NextLink } from "@/ui/next-link";
 import { Section } from "@/ui/section";
 import { MobileMenu } from "./mobile-menu";
 import { NavigationMenu } from "./navigation-menu";
@@ -22,9 +23,9 @@ export const Header = ({ ...props }: HeaderProps) => {
 			<Container.Root maxW="7xl">
 				<Flex h={16} alignItems="center" justifyContent="space-between">
 					<Section.Heading size="lg" fontWeight="bold">
-						<Link href="#home" _hover={{ textDecoration: "none" }}>
+						<NextLink href="#home" _hover={{ textDecoration: "none" }}>
 							bmthd
-						</Link>
+						</NextLink>
 					</Section.Heading>
 
 					<NavigationMenu />

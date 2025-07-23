@@ -23,8 +23,8 @@
 		"rss-parser": "^3.13.0"
 	},
 	"devDependencies": {
-		"@anthropic-ai/claude-code": "^1.0.51",
-		"@biomejs/biome": "^2.1.1",
+		"@anthropic-ai/claude-code": "^1.0.58",
+		"@biomejs/biome": "^2.1.2",
 		"@getgrit/cli": "^0.1.0-alpha.1743007075",
 		"@getgrit/gritql": "^0.0.1",
 		"@types/node": "^20",

@@ -1,6 +1,7 @@
 import { UIProvider } from "@yamada-ui/react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { theme } from "@/theme";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -27,7 +28,7 @@ export default ({
 		<html lang="ja">
 			{/* biome-ignore lint: plugin 必須レイアウトのため */}
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
-				<UIProvider>{children}</UIProvider>
+				<UIProvider theme={theme}>{children}</UIProvider>
 			</body>
 		</html>
 	);

@@ -1,28 +1,15 @@
 language js
 
-function register($tag) {
+or {
+  `<$tag />`,
+  `<$tag $_ />`,
+  `<$tag>$_</$_>`,
+  `<$tag $_>$_</$_>`
+} where {
+  $tag <: r"^[a-z][a-z0-9-]*$",
   register_diagnostic(
     span = $tag,
     message = "Do not use direct DOM elements. Use the project's design system instead.",
     severity = "error"
   )
-}
-
-or {
-  `<$tag>$body</$_>` where {
-    $tag <: r"^[a-z][a-z0-9-]*$",
-    register($tag)
-  },
-  `<$tag />` where {
-    $tag <: r"^[a-z][a-z0-9-]*$",
-    register($tag)
-  },
-  `<$tag $props />` where {
-    $tag <: r"^[a-z][a-z0-9-]*$",
-    register($tag)
-  },
-  `<$tag $props>$body</$_>` where {
-    $tag <: r"^[a-z][a-z0-9-]*$",
-    register($tag)
-  }
 }

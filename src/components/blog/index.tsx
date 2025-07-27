@@ -2,18 +2,15 @@ import {
 	Badge,
 	Box,
 	type BoxProps,
-	Card,
 	Container,
-	ExternalLinkIcon,
 	Grid,
-	GridItem,
-	Image,
-	Link,
 	Text,
 	VStack,
 } from "@yamada-ui/react";
 import { fetchBlogArticles } from "@/lib/blog";
+import { NextLink } from "@/ui/next-link";
 import { Section } from "@/ui/section";
+import { BlogItem } from "./blog-item";
 
 interface BlogProps extends BoxProps {}
 
@@ -22,13 +19,13 @@ export const Blog = async ({ ...props }: BlogProps) => {
 
 	return (
 		<Section.Root py={20} bg="white" {...props}>
-			<Container.Root maxW="7xl">
+			<Container.Root>
 				<VStack gap={12}>
 					<VStack gap={4} textAlign="center">
 						<Section.Heading as="h2" size="3xl" fontWeight="bold">
 							Blog
 						</Section.Heading>
-						<Text fontSize="lg" color="gray.600" maxW="3xl">
+						<Text fontSize="lg" color="gray.600">
 							技術記事やアイデアを発信しています
 						</Text>
 						<Badge colorScheme="blue" variant="outline" px={3} py={1}>
@@ -46,104 +43,24 @@ export const Blog = async ({ ...props }: BlogProps) => {
 						w="full"
 					>
 						{articles.map((article, index) => (
-							<GridItem key={`${article.link}-${index}`}>
-								<Card.Root
-									h="full"
-									overflow="hidden"
-									_hover={{
-										transform: "translateY(-4px)",
-										shadow: "lg",
-										textDecoration: "none",
-									}}
-									transition="all 0.3s"
-									cursor="pointer"
-									as={Link}
-									href={article.link}
-									target="_blank"
-									rel="noopener noreferrer"
-									textDecoration="none"
-								>
-									<Box position="relative" h="180px" overflow="hidden">
-										<Image
-											src={article.ogImageURL}
-											alt={article.title}
-											objectFit="cover"
-										/>
-										<Box
-											position="absolute"
-											top={2}
-											right={2}
-											bg="white"
-											borderRadius="full"
-											p={1}
-											shadow="sm"
-										>
-											<ExternalLinkIcon fontSize="16px" color="#666" />
-										</Box>
-									</Box>
-									<Card.Body>
-										<VStack gap={3} align="start" h="full">
-											<Text fontSize="xs" color="gray.500" fontWeight="medium">
-												{formatDate(article.pubDate)}
-											</Text>
-											<Section.Heading
-												as="h3"
-												size="sm"
-												lineHeight="short"
-												flex="1"
-												overflow="hidden"
-												display="-webkit-box"
-												style={{
-													WebkitLineClamp: 2,
-													WebkitBoxOrient: "vertical",
-												}}
-											>
-												{article.title}
-											</Section.Heading>
-											<Text
-												fontSize="sm"
-												color="gray.600"
-												lineHeight="base"
-												overflow="hidden"
-												display="-webkit-box"
-												style={{
-													WebkitLineClamp: 3,
-													WebkitBoxOrient: "vertical",
-												}}
-											>
-												{article.description}
-											</Text>
-										</VStack>
-									</Card.Body>
-								</Card.Root>
-							</GridItem>
+							<BlogItem key={`${article.link}-${index}`} article={article} />
 						))}
 					</Grid>
 
 					<Box textAlign="center">
-						<Link
+						<NextLink
 							href="https://zenn.dev/bmth"
-							target="_blank"
-							rel="noopener noreferrer"
+							external
 							fontSize="sm"
 							color="blue.500"
 							fontWeight="medium"
 							_hover={{ textDecoration: "underline" }}
 						>
 							すべての記事を見る →
-						</Link>
+						</NextLink>
 					</Box>
 				</VStack>
 			</Container.Root>
 		</Section.Root>
 	);
-};
-
-const formatDate = (dateString: string) => {
-	const date = new Date(dateString);
-	return date.toLocaleDateString("ja-JP", {
-		year: "numeric",
-		month: "short",
-		day: "numeric",
-	});
 };

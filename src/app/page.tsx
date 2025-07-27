@@ -1,4 +1,4 @@
-import { Box } from "@yamada-ui/react";
+import { Box, Flex } from "@yamada-ui/react";
 import { About } from "@/components/about";
 import { Blog } from "@/components/blog";
 import { Contact } from "@/components/contact";
@@ -10,12 +10,7 @@ import { Skills } from "@/components/skills";
 import { SECTIONS } from "@/constants/sections";
 
 export default () => (
-	<Box
-		minH="100vh"
-		display="flex"
-		flexDirection="column"
-		scrollBehavior="smooth"
-	>
+	<Flex minH="100vh" w="full" placeItems="center" mx="auto" px="4">
 		<Header />
 		<Box as="main">
 			<Hero id={SECTIONS.HOME} />
@@ -26,5 +21,5 @@ export default () => (
 			<Contact id={SECTIONS.CONTACT} />
 		</Box>
 		<Footer />
-	</Box>
+	</Flex>
 );

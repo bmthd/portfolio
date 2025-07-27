@@ -28,7 +28,7 @@ export interface BlogArticle {
 	link: string;
 	pubDate: string;
 	description: string;
-	ogpImage: string;
+	ogImageURL: string;
 }
 
 export interface BlogData {
@@ -43,41 +43,20 @@ const parser: Parser<CustomFeed, CustomItem> = new Parser({
 	},
 });
 
-// OGP画像を抽出する関数
-export const extractOGPImage = (content: string): string | null => {
-	// content:encodedからOGP画像を抽出
-	const ogImageMatch = content.match(
-		/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i,
-	);
-	if (ogImageMatch) {
-		return ogImageMatch[1];
-	}
-
-	// 最初の画像タグから画像を抽出
-	const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
-	if (imgMatch) {
-		return imgMatch[1];
-	}
-
-	return null;
-};
-
 export const fetchBlogArticles = async (): Promise<BlogData> => {
 	try {
 		const feed = await parser.parseURL("https://zenn.dev/bmth/feed");
 
-		const articles = feed.items.slice(0, 6).map((item) => {
-			const content = item["content:encoded"] || item.content || "";
-			const ogpImage = extractOGPImage(content);
-
-			return {
+		const articles = feed.items.slice(0, 6).map(
+			(item): BlogArticle => ({
 				title: item.title || "",
 				link: item.link || "",
 				pubDate: item.pubDate || "",
 				description: item.contentSnippet || "",
-				ogpImage: ogpImage || "https://zenn.dev/images/logo-transparent.png", // デフォルト画像
-			};
-		});
+				ogImageURL:
+					item.enclosure?.url || "https://zenn.dev/images/logo-transparent.png",
+			}),
+		);
 
 		return {
 			articles,

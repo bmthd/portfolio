@@ -65,7 +65,7 @@ export const Blog = async ({ ...props }: BlogProps) => {
 								>
 									<Box position="relative" h="180px" overflow="hidden">
 										<Image
-											src={article.ogpImage}
+											src={article.ogImageURL}
 											alt={article.title}
 											objectFit="cover"
 										/>

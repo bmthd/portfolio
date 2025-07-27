@@ -1,3 +1,4 @@
+import "server-only";
 import Parser from "rss-parser";
 
 interface CustomFeed {

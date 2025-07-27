@@ -4,6 +4,7 @@ import {
 	Box,
 	Flex,
 	IconButton,
+	type IconButtonProps,
 	MenuIcon,
 	useDisclosure,
 	VStack,
@@ -17,13 +18,16 @@ const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 	href: `#${value}`,
 }));
 
-export const MobileMenu = () => {
+interface MobileMenuProps
+	extends Omit<IconButtonProps, "icon" | "aria-label"> {}
+
+export const MobileMenu = (props: MobileMenuProps) => {
 	const { open, onOpen, onClose } = useDisclosure();
 
 	return (
 		<>
 			<IconButton
-				display={{ base: "flex", md: "none" }}
+				{...props}
 				onClick={onOpen}
 				variant="ghost"
 				aria-label="Open menu"

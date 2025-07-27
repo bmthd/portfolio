@@ -1,4 +1,4 @@
-import { Flex } from "@yamada-ui/react";
+import { Flex, type FlexProps } from "@yamada-ui/react";
 import { SECTIONS } from "@/constants/sections";
 import { NextLink } from "@/ui/next-link";
 
@@ -7,9 +7,11 @@ const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
 	href: `#${value}`,
 }));
 
-export const NavigationMenu = () => {
+interface NavigationMenuProps extends FlexProps {}
+
+export const NavigationMenu = (props: NavigationMenuProps) => {
 	return (
-		<Flex display={{ base: "none", md: "flex" }} gap={8}>
+		<Flex gap={8} {...props}>
 			{navItems.map((item) => (
 				<NextLink
 					key={item.label}

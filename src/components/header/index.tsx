@@ -27,8 +27,8 @@ export const Header = ({ ...props }: HeaderProps) => {
 					</NextLink>
 				</Section.Heading>
 
-				<NavigationMenu />
-				<MobileMenu />
+				<NavigationMenu display={{ base: "flex", lg: "none" }} />
+				<MobileMenu display={{ base: "none", lg: "flex" }} />
 			</Flex>
 		</Container.Root>
 	);

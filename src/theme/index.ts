@@ -7,6 +7,11 @@ import {
 
 export const theme = defineTheme({
 	...defaultTheme,
+	fonts: {
+		...defaultTheme.fonts,
+		body: "var(--font-biz-udp-gothic), sans-serif",
+		heading: "var(--font-biz-udp-gothic), sans-serif",
+	},
 	styles: {
 		...defaultTheme.styles,
 		globalStyle: merge<CSSObject>(defaultTheme.styles.globalStyle, {

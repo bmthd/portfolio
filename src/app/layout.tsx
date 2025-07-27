@@ -1,16 +1,12 @@
 import { UIProvider } from "@yamada-ui/react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { BIZ_UDPGothic } from "next/font/google";
 import { theme } from "@/theme";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
+const bizUdpGothic = BIZ_UDPGothic({
+	variable: "--font-biz-udp-gothic",
 	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
+	weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +23,7 @@ export default ({
 		// biome-ignore lint: plugin 必須レイアウトのため
 		<html lang="ja">
 			{/* biome-ignore lint: plugin 必須レイアウトのため */}
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+			<body className={bizUdpGothic.variable}>
 				<UIProvider theme={theme}>{children}</UIProvider>
 			</body>
 		</html>

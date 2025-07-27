@@ -10,14 +10,10 @@ export const Header = ({ ...props }: HeaderProps) => {
 	return (
 		<Container.Root
 			as="header"
-			position="fixed"
-			top={0}
-			w="full"
 			bg="white"
 			backdropFilter="blur(10px)"
 			borderBottom="1px"
 			borderColor="gray.200"
-			zIndex={1000}
 			{...props}
 		>
 			<Flex h={16} alignItems="center" justifyContent="space-between" mx={4}>

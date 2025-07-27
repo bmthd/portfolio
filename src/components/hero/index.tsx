@@ -18,7 +18,6 @@ export const Hero = ({ ...props }: HeroProps) => {
 			display="flex"
 			alignItems="center"
 			bg="gray.50"
-			pt={16}
 			{...props}
 		>
 			<Container.Root maxW="7xl">

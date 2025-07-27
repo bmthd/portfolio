@@ -125,6 +125,36 @@ AI運用5原則
   - **useSyncExternalStore**: 外部ストアとの同期が必要な場合
   - **既存ライブラリの抽象化**: TanStack Query（データフェッチ）、Yamada UIのuseEventListener（イベントリスナー）など
   - どうしても必要な場合は、十分にテストされた既存ライブラリの抽象化を優先し、生のuseEffectは極力避ける
+- [ ] **コンポーネント配置のルール**：関心事の分離を徹底し、適切な責任範囲を維持する
+  - **禁止事項**: コンポーネントが自分自身の配置方法を決定すること
+    - `position: "fixed"`, `position: "absolute"` 等の配置プロパティ
+    - `top`, `left`, `right`, `bottom` 等の座標プロパティ
+    - `zIndex` による重ね順の制御
+    - レイアウトに関わる `margin`, `padding` の固定値
+  - **推奨する設計**: 親コンポーネントが配置を制御する
+    - 子コンポーネントは Props 経由で配置プロパティを受け取る
+    - `interface ComponentProps extends BoxProps {}` で配置プロパティを継承
+    - 親が `<Component position="fixed" top={0} zIndex={1000} />` のように指定
+  - **例外**: コンポーネント内部の実装詳細のレイアウト
+    - モーダル・ドロップダウン内部の要素配置
+    - アイコンの相対的な配置（例: 画像上のバッジ）
+    - カード内のコンテンツ配置
+  - **適用例**:
+    ```tsx
+    // ❌ 悪い例: コンポーネントが自分の配置を決定
+    export const Header = () => (
+      <Box position="fixed" top={0} zIndex={1000}>...</Box>
+    );
+    
+    // ✅ 良い例: 親が配置を制御
+    interface HeaderProps extends BoxProps {}
+    export const Header = (props: HeaderProps) => (
+      <Box {...props}>...</Box>
+    );
+    
+    // 使用側で配置を指定
+    <Header position="fixed" top={0} zIndex={1000} />
+    ```
 
 ### デプロイ
 - [ ] Vercel/Netlify 等での自動デプロイ

@@ -11,9 +11,9 @@ import { SECTIONS } from "@/constants/sections";
 
 export default () => (
 	<Flex minH="100vh" w="full" placeItems="center" mx="auto" px="4">
-		<Header />
+		<Header position="fixed" top={0} w="full" zIndex={1000} />
 		<Box as="main">
-			<Hero id={SECTIONS.HOME} />
+			<Hero id={SECTIONS.HOME} pt={16} />
 			<About id={SECTIONS.ABOUT} />
 			<Skills id={SECTIONS.SKILLS} />
 			<Projects id={SECTIONS.PROJECTS} />

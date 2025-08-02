@@ -3,7 +3,6 @@ import {
 	type BoxProps,
 	Card,
 	ExternalLinkIcon,
-	GridItem,
 	Image,
 	Link,
 	Text,

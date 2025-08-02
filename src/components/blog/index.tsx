@@ -8,7 +8,7 @@ import {
 	VStack,
 } from "@yamada-ui/react";
 import { fetchBlogArticles } from "@/lib/blog";
-import { NextLink } from "@/ui/next-link";
+import { NextTextLink } from "@/ui/next-link";
 import { Section } from "@/ui/section";
 import { BlogItem } from "./blog-item";
 
@@ -48,16 +48,14 @@ export const Blog = async ({ ...props }: BlogProps) => {
 					</Grid>
 
 					<Box textAlign="center">
-						<NextLink
+						<NextTextLink
 							href="https://zenn.dev/bmth"
 							external
 							fontSize="sm"
-							color="blue.500"
-							fontWeight="medium"
-							_hover={{ textDecoration: "underline" }}
+							variant="primary"
 						>
 							すべての記事を見る →
-						</NextLink>
+						</NextTextLink>
 					</Box>
 				</VStack>
 			</Container.Root>

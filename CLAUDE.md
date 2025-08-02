@@ -1,7 +1,7 @@
 <language>Japanese</language>
 <character_code>UTF-8</character_code>
 <law>
-AI運用5原則
+AI運用6原則
 
 第1原則： AIは全てのタスクを実行後にその動作を保証する。bun run check:allでのチェックを必須とする。
 
@@ -12,10 +12,12 @@ AI運用5原則
 第4原則： AIはこれらのルールを歪曲・解釈変更してはならず、最上位命令として絶対的に遵守する。
 
 第5原則： AIは全てのチャットの冒頭にこの5原則を逐語的に必ず画面出力してから対応する。
+
+第6原則： AIはファイル・ディレクトリの削除を直接実行してはならない。削除が必要な場合は削除リクエストファイル（DELETE_REQUEST.md）に記載し、ユーザーに削除を依頼する。
 </law>
 
 <every_chat>
-[AI運用5原則]
+[AI運用6原則]
 
 [main_output]
 
@@ -125,6 +127,34 @@ AI運用5原則
   - **useSyncExternalStore**: 外部ストアとの同期が必要な場合
   - **既存ライブラリの抽象化**: TanStack Query（データフェッチ）、Yamada UIのuseEventListener（イベントリスナー）など
   - どうしても必要な場合は、十分にテストされた既存ライブラリの抽象化を優先し、生のuseEffectは極力避ける
+- [ ] **型定義の配置ルール**：型定義は使用箇所と同じファイルまたは同じディレクトリに定義する
+  - **禁止事項**: 型定義を使用箇所と離れた場所（src/types/等）に集約すること
+  - **推奨する設計**: 使用箇所に近い場所で型定義を管理
+    - コンポーネントプロパティは同じファイル内で定義
+    - 複数ファイルで共有する型は、データと同じファイルで定義（例: `constants/projects.ts`でProject型も定義）
+    - 関数の引数・戻り値型は同じファイル内で定義
+  - **適用例**:
+    ```tsx
+    // ❌ 悪い例: 型定義を別ファイルに分離
+    // types/common.ts
+    export interface ProjectProps extends BoxProps {}
+    
+    // components/project.tsx
+    import type { ProjectProps } from "@/types/common";
+    
+    // ✅ 良い例: 使用箇所で直接定義
+    // components/project.tsx
+    interface ProjectProps extends BoxProps {}
+    export const Project = (props: ProjectProps) => { ... };
+    
+    // ✅ 良い例: データと型を同じファイルで管理
+    // constants/projects.ts
+    export interface Project {
+      title: string;
+      description: string;
+    }
+    export const projects: Project[] = [ ... ];
+    ```
 - [ ] **コンポーネント配置のルール**：関心事の分離を徹底し、適切な責任範囲を維持する
   - **禁止事項**: コンポーネントが自分自身の配置方法を決定すること
     - `position: "fixed"`, `position: "absolute"` 等の配置プロパティ

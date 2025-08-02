@@ -33,6 +33,7 @@
 		"@types/react-dom": "^19",
 		"@typescript/native-preview": "^7.0.0-dev.20250712.1",
 		"lefthook": "^1.12.2",
+		"ts-essentials": "^10.1.1",
 		"typescript": "^5"
 	}
 }

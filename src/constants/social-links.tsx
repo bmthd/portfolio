@@ -4,13 +4,14 @@ import {
 	MailIcon,
 	TwitterIcon,
 } from "@yamada-ui/react";
+import type { DeepReadonly } from "ts-essentials";
 
-export interface SocialLink {
+export type SocialLink = DeepReadonly<{
 	name: string;
 	href: string;
 	icon: React.ReactNode;
 	description?: string;
-}
+}>;
 
 export const socialLinks = [
 	{
@@ -37,4 +38,4 @@ export const socialLinks = [
 		icon: <MailIcon />,
 		description: "直接メールでお問い合わせ",
 	},
-] as const satisfies readonly SocialLink[];
+] as const satisfies ReadonlyArray<SocialLink>;

@@ -177,6 +177,31 @@ AI運用6原則
       ABOUT: "about"
     } as const satisfies Record<string, string>;
     ```
+- [ ] **型の不変性とDeepReadonly**: ts-essentialsを使用してより簡潔で安全な型定義を行う
+  - **ts-essentialsの導入**: `bun add -D ts-essentials`で型ユーティリティを追加
+  - **type + DeepReadonlyの使用**: interfaceではなくtypeとDeepReadonlyを組み合わせて使用
+  - **ReadonlyArrayの使用**: 配列の型注釈には`ReadonlyArray<T>`を使用
+  - **適用例**:
+    ```typescript
+    // ❌ 悪い例: interfaceとreadonlyの手動指定
+    export interface Project {
+      readonly title: string;
+      readonly technologies: readonly string[];
+    }
+    export const projects = [...] as const satisfies readonly Project[];
+    
+    // ✅ 良い例: typeとDeepReadonlyで簡潔に
+    import type { DeepReadonly } from "ts-essentials";
+    
+    export type Project = DeepReadonly<{
+      title: string;
+      technologies: string[];
+    }>;
+    export const projects = [...] as const satisfies ReadonlyArray<Project>;
+    
+    // ✅ 良い例: 関数の戻り値も不変
+    export const getProjects = (): ReadonlyArray<Project> => projects;
+    ```
 - [ ] **コンポーネント配置のルール**：関心事の分離を徹底し、適切な責任範囲を維持する
   - **禁止事項**: コンポーネントが自分自身の配置方法を決定すること
     - `position: "fixed"`, `position: "absolute"` 等の配置プロパティ

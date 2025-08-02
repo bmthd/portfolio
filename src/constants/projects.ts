@@ -1,11 +1,13 @@
-export interface Project {
+import type { DeepReadonly } from "ts-essentials";
+
+export type Project = DeepReadonly<{
 	title: string;
 	description: string;
 	technologies: string[];
 	github?: string;
 	demo?: string;
 	image?: string;
-}
+}>;
 
 export const projects = [
 	{
@@ -31,4 +33,4 @@ export const projects = [
 		technologies: ["React Native", "TypeScript", "Expo", "Weather API"],
 		github: "https://github.com/bmthd/weather-app",
 	},
-] as const satisfies readonly Project[];
+] as const satisfies ReadonlyArray<Project>;

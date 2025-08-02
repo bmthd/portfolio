@@ -1,16 +1,17 @@
 import "server-only";
 import Parser from "rss-parser";
+import type { DeepReadonly } from "ts-essentials";
 
-interface CustomFeed {
+type CustomFeed = DeepReadonly<{
 	title?: string;
 	description?: string;
 	link?: string;
 	image?: {
 		url?: string;
 	};
-}
+}>;
 
-interface CustomItem {
+type CustomItem = DeepReadonly<{
 	title?: string;
 	link?: string;
 	pubDate?: string;
@@ -21,20 +22,20 @@ interface CustomItem {
 		url?: string;
 		type?: string;
 	};
-}
+}>;
 
-export interface BlogArticle {
+export type BlogArticle = DeepReadonly<{
 	title: string;
 	link: string;
 	pubDate: string;
 	description: string;
 	ogImageURL: string;
-}
+}>;
 
-export interface BlogData {
-	articles: BlogArticle[];
+export type BlogData = DeepReadonly<{
+	articles: ReadonlyArray<BlogArticle>;
 	feedTitle: string;
-}
+}>;
 
 const parser: Parser<CustomFeed, CustomItem> = new Parser({
 	customFields: {

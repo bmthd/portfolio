@@ -1,7 +1,9 @@
-export interface SkillCategory {
+import type { DeepReadonly } from "ts-essentials";
+
+export type SkillCategory = DeepReadonly<{
 	name: string;
 	skills: string[];
-}
+}>;
 
 export const skillCategories = [
 	{
@@ -27,4 +29,4 @@ export const skillCategories = [
 		name: "インフラ・ツール",
 		skills: ["AWS", "Docker", "Kubernetes", "Terraform", "GitHub Actions"],
 	},
-] as const satisfies readonly SkillCategory[];
+] as const satisfies ReadonlyArray<SkillCategory>;

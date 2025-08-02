@@ -1,0 +1,16 @@
+language js
+
+or {
+  `useEffect` as $useEffect,
+  `useLayoutEffect` as $useEffect,
+  `useInsertionEffect` as $useEffect,
+  `React.useEffect` as $useEffect,
+  `React.useLayoutEffect` as $useEffect,
+  `React.useInsertionEffect` as $useEffect
+} where {
+  register_diagnostic(
+    span = $useEffect,
+    message = "useEffect is prohibited. Use ref callbacks, useSyncExternalStore, or abstracted libraries like TanStack Query or hook libraries instead.",
+    severity = "error"
+  )
+}

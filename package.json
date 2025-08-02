@@ -1,23 +1,39 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.5"
-  },
-  "devDependencies": {
-    "@anthropic-ai/claude-code": "^1.0.51",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "typescript": "^5"
-  }
+	"name": "portfolio",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "biome check ./src --fix",
+		"format": "biome format ./src --fix",
+		"prepare": "lefthook install",
+		"check:lint": "biome check ./src",
+		"check:format": "biome format ./src",
+		"check:similarity": "similarity-ts src --threshold 0.82 | tee /tmp/similarity-output && ! grep -q 'Found.*duplicate pairs:' /tmp/similarity-output",
+		"check:type": "npx tsgo -p . --noEmit",
+		"check:all": "for script in $(npm run | grep 'check:' | grep -v 'check:all' | awk '{print $1}'); do bun run $script; done"
+	},
+	"dependencies": {
+		"@yamada-ui/react": "^2.0.0-next-20250710072846",
+		"next": "15.3.5",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"rss-parser": "^3.13.0",
+		"server-only": "^0.0.1"
+	},
+	"devDependencies": {
+		"@anthropic-ai/claude-code": "^1.0.58",
+		"@biomejs/biome": "^2.1.2",
+		"@getgrit/cli": "^0.1.0-alpha.1743007075",
+		"@getgrit/gritql": "^0.0.1",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"@typescript/native-preview": "^7.0.0-dev.20250712.1",
+		"lefthook": "^1.12.2",
+		"ts-essentials": "^10.1.1",
+		"typescript": "^5"
+	}
 }

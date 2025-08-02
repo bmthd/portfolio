@@ -1,11 +1,8 @@
 import { Flex, type FlexProps } from "@yamada-ui/react";
-import { SECTIONS } from "@/constants/sections";
 import { NextTextLink } from "@/ui/next-link";
+import { generateNavItems } from "@/utils/navigation";
 
-const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
-	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
-	href: `#${value}`,
-}));
+const navItems = generateNavItems();
 
 interface NavigationMenuProps extends FlexProps {}
 

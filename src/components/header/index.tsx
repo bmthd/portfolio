@@ -24,7 +24,22 @@ export const Header = ({ ...props }: HeaderProps) => {
 				</Section.Heading>
 
 				<NavigationMenu display={{ base: "flex", lg: "none" }} />
-				<MobileMenu display={{ base: "none", lg: "flex" }} />
+				<MobileMenu
+					display={{ base: "none", lg: "flex" }}
+					overlayProps={{
+						position: "fixed",
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						zIndex: 999,
+					}}
+					menuProps={{
+						position: "absolute",
+						right: 0,
+						top: 0,
+					}}
+				/>
 			</Flex>
 		</Container.Root>
 	);

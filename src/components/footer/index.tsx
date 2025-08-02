@@ -1,37 +1,17 @@
+import type { BoxProps } from "@yamada-ui/react";
 import {
 	Box,
-	type BoxProps,
 	Container,
 	Flex,
-	GithubIcon,
 	IconButton,
 	Link,
-	LinkedinIcon,
 	Separator,
 	Text,
-	TwitterIcon,
 	VStack,
 } from "@yamada-ui/react";
+import { socialLinks } from "@/constants";
 
 import { ScrollToTopButton } from "./scroll-to-top-button";
-
-const socialLinks = [
-	{
-		name: "GitHub",
-		url: "https://github.com/bmthd",
-		icon: GithubIcon,
-	},
-	{
-		name: "Twitter",
-		url: "https://twitter.com/bmthd",
-		icon: TwitterIcon,
-	},
-	{
-		name: "LinkedIn",
-		url: "https://linkedin.com/in/bmthd",
-		icon: LinkedinIcon,
-	},
-];
 
 interface FooterProps extends BoxProps {}
 
@@ -61,13 +41,13 @@ export const Footer = ({ ...props }: FooterProps) => {
 
 						<VStack gap={4} align="center">
 							<Flex gap={4}>
-								{socialLinks.map((link) => {
-									const IconComponent = link.icon;
-									return (
+								{socialLinks
+									.filter((link) => !link.description)
+									.map((link) => (
 										<IconButton
 											key={link.name}
 											as={Link}
-											href={link.url}
+											href={link.href}
 											target="_blank"
 											rel="noopener noreferrer"
 											variant="ghost"
@@ -75,10 +55,9 @@ export const Footer = ({ ...props }: FooterProps) => {
 											_hover={{ color: "white", bg: "gray.800" }}
 											aria-label={link.name}
 										>
-											<IconComponent fontSize="20px" />
+											{link.icon}
 										</IconButton>
-									);
-								})}
+									))}
 							</Flex>
 							<ScrollToTopButton />
 						</VStack>

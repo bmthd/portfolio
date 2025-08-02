@@ -1,49 +1,19 @@
+import type { BoxProps } from "@yamada-ui/react";
 import {
 	Box,
-	type BoxProps,
 	Card,
 	Container,
 	Flex,
-	GithubIcon,
 	Grid,
 	GridItem,
 	Link,
-	LinkedinIcon,
-	MailIcon,
 	Text,
-	TwitterIcon,
 	VStack,
 } from "@yamada-ui/react";
+import { socialLinks } from "@/constants";
 import { Section } from "@/ui/section";
 
 import { ContactForm } from "./contact-form";
-
-const socialLinks = [
-	{
-		name: "GitHub",
-		url: "https://github.com/bmthd",
-		icon: GithubIcon,
-		description: "プロジェクトとコードをご覧ください",
-	},
-	{
-		name: "Twitter",
-		url: "https://twitter.com/bmthd",
-		icon: TwitterIcon,
-		description: "最新の投稿と考えをフォロー",
-	},
-	{
-		name: "LinkedIn",
-		url: "https://linkedin.com/in/bmthd",
-		icon: LinkedinIcon,
-		description: "プロフェッショナルなつながり",
-	},
-	{
-		name: "Email",
-		url: "mailto:contact@bmthd.dev",
-		icon: MailIcon,
-		description: "直接メールでお問い合わせ",
-	},
-];
 
 interface ContactProps extends BoxProps {}
 
@@ -82,48 +52,42 @@ export const Contact = ({ ...props }: ContactProps) => {
 												以下のプラットフォームでもお気軽にお声がけください
 											</Text>
 											<VStack gap={4} w="full">
-												{socialLinks.map((link) => {
-													const IconComponent = link.icon;
-													return (
-														<Link
-															key={link.name}
-															href={link.url}
-															target="_blank"
-															rel="noopener noreferrer"
-															w="full"
-															_hover={{ textDecoration: "none" }}
+												{socialLinks.map((link) => (
+													<Link
+														key={link.name}
+														href={link.href}
+														target="_blank"
+														rel="noopener noreferrer"
+														w="full"
+														_hover={{ textDecoration: "none" }}
+													>
+														<Card.Root
+															variant="outline"
+															cursor="pointer"
+															_hover={{
+																borderColor: "blue.300",
+																shadow: "sm",
+															}}
+															transition="all 0.2s"
 														>
-															<Card.Root
-																variant="outline"
-																cursor="pointer"
-																_hover={{
-																	borderColor: "blue.300",
-																	shadow: "sm",
-																}}
-																transition="all 0.2s"
-															>
-																<Card.Body py={4}>
-																	<Flex alignItems="center" gap={4}>
-																		<Box p={2} bg="blue.50" borderRadius="md">
-																			<IconComponent
-																				fontSize="20px"
-																				color="#3182ce"
-																			/>
-																		</Box>
-																		<Box flex={1}>
-																			<Text fontWeight="medium">
-																				{link.name}
-																			</Text>
+															<Card.Body py={4}>
+																<Flex alignItems="center" gap={4}>
+																	<Box p={2} bg="blue.50" borderRadius="md">
+																		{link.icon}
+																	</Box>
+																	<Box flex={1}>
+																		<Text fontWeight="medium">{link.name}</Text>
+																		{link.description && (
 																			<Text fontSize="sm" color="gray.600">
 																				{link.description}
 																			</Text>
-																		</Box>
-																	</Flex>
-																</Card.Body>
-															</Card.Root>
-														</Link>
-													);
-												})}
+																		)}
+																	</Box>
+																</Flex>
+															</Card.Body>
+														</Card.Root>
+													</Link>
+												))}
 											</VStack>
 										</VStack>
 									</Card.Body>

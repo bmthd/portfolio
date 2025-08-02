@@ -2,6 +2,7 @@
 
 import {
 	Box,
+	type BoxProps,
 	Flex,
 	IconButton,
 	type IconButtonProps,
@@ -10,18 +11,21 @@ import {
 	VStack,
 	XIcon,
 } from "@yamada-ui/react";
-import { SECTIONS } from "@/constants/sections";
 import { NextTextLink } from "@/ui/next-link";
+import { generateNavItems } from "@/utils/navigation";
 
-const navItems = Object.entries(SECTIONS).map(([key, value]) => ({
-	label: key.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
-	href: `#${value}`,
-}));
+const navItems = generateNavItems();
 
-interface MobileMenuProps
-	extends Omit<IconButtonProps, "icon" | "aria-label"> {}
+interface MobileMenuProps extends Omit<IconButtonProps, "icon" | "aria-label"> {
+	overlayProps?: BoxProps;
+	menuProps?: BoxProps;
+}
 
-export const MobileMenu = (props: MobileMenuProps) => {
+export const MobileMenu = ({
+	overlayProps,
+	menuProps,
+	...props
+}: MobileMenuProps) => {
 	const { open, onOpen, onClose } = useDisclosure();
 
 	return (
@@ -35,25 +39,14 @@ export const MobileMenu = (props: MobileMenuProps) => {
 			/>
 
 			{open && (
-				<Box
-					position="fixed"
-					top={0}
-					left={0}
-					right={0}
-					bottom={0}
-					bg="rgba(0, 0, 0, 0.5)"
-					zIndex={999}
-					onClick={onClose}
-				>
+				<Box bg="rgba(0, 0, 0, 0.5)" onClick={onClose} {...overlayProps}>
 					<Box
-						position="absolute"
-						right={0}
-						top={0}
 						h="100vh"
 						w="300px"
 						bg="white"
 						p={6}
 						onClick={(e) => e.stopPropagation()}
+						{...menuProps}
 					>
 						<Flex justifyContent="flex-end" mb={4}>
 							<IconButton

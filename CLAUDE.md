@@ -155,6 +155,28 @@ AI運用6原則
     }
     export const projects: Project[] = [ ... ];
     ```
+- [ ] **型注釈とas constの使用ルール**：型安全性と推論の最適化を両立する
+  - **as constの型注釈**: `as const satisfies SomeType`の形式で型チェックと不変性を保証
+  - **推奨する書き方**: 型注釈を先に書いてからas constを適用
+    - 配列の場合: `as const satisfies readonly SomeType[]`
+    - オブジェクトの場合: `as const satisfies Record<string, string>`
+  - **適用例**:
+    ```typescript
+    // ❌ 悪い例: 型注釈なしのas const
+    export const projects = [...] as const;
+    
+    // ❌ 悪い例: 先に型注釈してas constなし
+    export const projects: readonly Project[] = [...];
+    
+    // ✅ 良い例: 型注釈とas constの組み合わせ
+    export const projects = [...] as const satisfies readonly Project[];
+    
+    // ✅ 良い例: オブジェクトの場合
+    export const SECTIONS = {
+      HOME: "home",
+      ABOUT: "about"
+    } as const satisfies Record<string, string>;
+    ```
 - [ ] **コンポーネント配置のルール**：関心事の分離を徹底し、適切な責任範囲を維持する
   - **禁止事項**: コンポーネントが自分自身の配置方法を決定すること
     - `position: "fixed"`, `position: "absolute"` 等の配置プロパティ

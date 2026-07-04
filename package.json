@@ -14,7 +14,7 @@
     "next": "15.3.8"
   },
   "devDependencies": {
-    "@anthropic-ai/claude-code": "^1.0.51",
+    "@anthropic-ai/claude-code": "^2.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
